@@ -1,63 +1,61 @@
-<!doctype html>
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 10px 24px rgba(0,0,0,0.18);
-transition:0.25s;
-z-index:999;
-}
-.floating-discord:hover{transform:scale(1.08);box-shadow:0 12px 30px rgba(0,0,0,0.22)}
-.floating-discord img{width:34px;filter:brightness(0) invert(1)}
-</style>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Floating Button</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+        }
+
+        /* Floating Discord Button */
+        .floating-discord {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #5865F2;
+            padding: 12px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: 0.2s ease;
+        }
+
+        .floating-discord:hover {
+            transform: scale(1.05);
+            background: #4752C4;
+        }
+
+        .floating-discord img {
+            width: 28px;
+            height: 28px;
+        }
+    </style>
 </head>
+
 <body>
-<div class="bg-animated" aria-hidden="true"></div>
-<div class="container">
-<header>
-<a href="#contact">Liên hệ</a>
-</header>
 
+    <h1 style="padding: 20px;">Trang mẫu – Discord Floating Button</h1>
+    <p style="padding: 20px;">
+        Đây là trang HTML mẫu có nút Discord nổi ở góc dưới bên phải.
+        Bạn có thể chỉnh sửa link Discord tuỳ ý.
+    </p>
 
-<main style="width:100%">
-<h1 class="main-title">Minh Nhat</h1>
-<p class="sub-title">Tham Gia Discord Để Được Hỗ Trợ Và Làm Quen Bạn Mới !</p>
+    <!-- Floating Button -->
+    <a href="https://discord.com/" class="floating-discord" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="discord">
+        Tham gia Discord
+    </a>
 
-
-<div class="card" style="margin-top:36px">
-<h3 style="margin:0 0 8px;color:var(--text)">Gửi tin nhắn nhanh</h3>
-<form onsubmit="return quickSend(event)">
-<input id="name" type="text" placeholder="Tên của bạn" required />
-<input id="msg" type="text" placeholder="Nội dung tin nhắn" required />
-<button type="submit">Gửi</button>
-</form>
-<div id="feedback" style="margin-top:10px;color:var(--muted)">Chưa có tin nhắn.</div>
-</div>
-</main>
-
-
-<footer id="contact">
-© Minh Nhat — Vui lòng tham gia Discord để kết nối.<br>
-<a href="https://discord.gg/P9yeTvwKjB" target="_blank" style="color:var(--text)">🌐 Tham gia Discord</a> ·
-<a href="https://guns.lol/phamminhnhat__" target="_blank" style="color:var(--text)">🔗 Bio</a>
-</footer>
-</div>
-
-
-<script>
-function quickSend(e){
-e.preventDefault();
-const name = document.getElementById('name').value.trim();
-const msg = document.getElementById('msg').value.trim();
-const fb = document.getElementById('feedback');
-fb.textContent = `${name}: ${msg}`;
-e.target.reset();
-return false;
-}
-</script>
-<!-- Floating Discord Button -->
-<a href="https://discord.gg/P9yeTvwKjB" target="_blank" class="floating-discord">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord" />
-</a>
 </body>
 </html>
