@@ -15,7 +15,7 @@
         overflow: hidden;
     }
 
-    /* ===== Hacking Theme (white lines) ===== */
+    /* ===== Hacking lines (black & white) ===== */
     .hacking-theme {
         position: fixed;
         inset: 0;
@@ -25,34 +25,21 @@
 
     .hacking-theme div {
         position: absolute;
-        width: 2px;
+        width: 1px;
         height: 100%;
-        background: rgba(255,255,255,0.8);
+        background: rgba(255,255,255,0.7);
         opacity: 0;
         animation: hackMove 5s linear infinite;
     }
 
     @keyframes hackMove {
-        0% {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        50% {
-            opacity: 0.6;
-        }
-        100% {
-            transform: translateY(100%);
-            opacity: 0;
-        }
+        0% { transform: translateY(-100%); opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { transform: translateY(100%); opacity: 0; }
     }
 
-    .hacking-theme div:nth-child(odd) {
-        animation-duration: 4s;
-    }
-
-    .hacking-theme div:nth-child(even) {
-        animation-duration: 6s;
-    }
+    .hacking-theme div:nth-child(odd) { animation-duration: 4s; }
+    .hacking-theme div:nth-child(even) { animation-duration: 6s; }
 
     /* ===== Matrix ===== */
     canvas {
@@ -73,24 +60,44 @@
     }
 
     @keyframes floatUp {
-        from {
-            transform: translateY(100vh);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(-10vh);
-            opacity: 1;
-        }
+        from { transform: translateY(100vh); opacity: 0; }
+        to { transform: translateY(-10vh); opacity: 1; }
     }
 
-    hr { width: 60%; opacity: 0.4; }
+    /* ===== Center layout ===== */
+    .center-wrapper {
+        position: relative;
+        z-index: 10;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .center-content {
+        max-width: 900px;
+        width: 100%;
+        padding: 30px;
+        background: rgba(0,0,0,0.35);
+        backdrop-filter: blur(6px);
+        border-radius: 14px;
+    }
+
+    hr {
+        width: 60%;
+        opacity: 0.4;
+        margin: 20px auto;
+    }
+
     a { text-decoration: none; }
+    img { max-width: 100%; }
 </style>
 </head>
 
 <body>
 
-<!-- Hacking Lines -->
+<!-- Hacking background -->
 <div class="hacking-theme">
     <div style="left:10%"></div>
     <div style="left:20%"></div>
@@ -107,32 +114,35 @@
 <canvas id="matrix"></canvas>
 
 <!-- Content -->
-<div align="center">
-    <!-- Logo -->
-    <img src="https://cdn.discordapp.com/attachments/1407244638674485340/1448832422287380552/image.png">
-    <h1>Website</h1>
+<div class="center-wrapper">
+    <div class="center-content">
 
-    <hr>
+        <img src="https://cdn.discordapp.com/attachments/1407244638674485340/1448832422287380552/image.png">
+        <h1>Website</h1>
 
-    <h3>🔗 Connect With Me</h3>
+        <hr>
 
-    <a href="https://www.youtube.com/@MinhhNhatt-0504">
-        <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-    </a>
+        <h3>🔗 Connect With Me</h3>
 
-    <a href="https://pmn.onrender.com/">
-        <img src="https://img.shields.io/badge/Website-mussix.onrender.com-blue?logo=google-chrome">
-    </a>
+        <a href="https://www.youtube.com/@MinhhNhatt-0504">
+            <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
+        </a>
 
-    <a href="https://discord.gg/P9yeTvwKjB">
-        <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-    </a>
+        <a href="https://pmn.onrender.com/">
+            <img src="https://img.shields.io/badge/Website-mussix.onrender.com-blue?logo=google-chrome">
+        </a>
 
-    <a href="https://guns.lol/phamminhnhat__">
-        <img src="https://img.shields.io/badge/My%20Bio-pink?logo=google%20chrome">
-    </a>
+        <a href="https://discord.gg/P9yeTvwKjB">
+            <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
+        </a>
 
-    <hr>
+        <a href="https://guns.lol/phamminhnhat__">
+            <img src="https://img.shields.io/badge/My%20Bio-pink?logo=google%20chrome">
+        </a>
+
+        <hr>
+
+    </div>
 </div>
 
 <script>
@@ -153,7 +163,7 @@ let columns = canvas.width / fontSize;
 let drops = Array(Math.floor(columns)).fill(1);
 
 function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#ffffff";
