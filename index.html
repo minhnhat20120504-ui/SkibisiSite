@@ -6,6 +6,29 @@
 <title>Pham Minh Nhat</title>
 
 <style>
+    .lang-switch {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.lang-switch button {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lang-switch button:hover {
+  background: #fff;
+  color: #000;
+}
+
     body {
         margin: 0;
         min-height: 100vh;
@@ -13,6 +36,10 @@
         color: white;
         background: black;
         overflow: hidden;
+        <div class="lang-switch">
+  <button id="langBtn">EN</button>
+</div>
+
     }
 
     /* ===== Hacking lines ===== */
