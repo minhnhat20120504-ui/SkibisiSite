@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif)
+![Logo](https://cdn.discordapp.com/attachments/1407246065824174151/1449982152396505178/image.png?ex=6940e09c&is=693f8f1c&hm=eb01663fcf9e1461c1dfb744defb3a15e2ccda57710134f9ede4d727bf25adf8&)
 # ReadMe
 
 
