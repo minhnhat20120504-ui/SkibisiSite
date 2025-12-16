@@ -125,6 +125,32 @@ canvas {
 .fade {
   transition: opacity .35s ease;
 }
+
+/* ===== ADDED MUSIC UI ===== */
+.music-control {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 99999;
+  background: rgba(0,0,0,.65);
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.music-control input[type="range"] {
+  width: 90px;
+}
+
+@media (max-width: 600px) {
+  .music-control {
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 </style>
 </head>
 
@@ -137,6 +163,16 @@ canvas {
   <button data-lang="ja">🇯🇵</button>
   <button data-lang="ko">🇰🇷</button>
   <button data-lang="zh">🇨🇳</button>
+</div>
+
+<!-- ===== ADDED MUSIC ELEMENT ===== -->
+<audio id="bg-music" preload="auto" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control">
+  🔊
+  <input type="range" id="volume" min="0" max="1" step="0.01">
 </div>
 
 <div class="hacking-theme">
@@ -178,7 +214,6 @@ Pham Minh Nhat._.
 🔗 Kết nối với tôi
 </h3>
 
-<!-- BADGES – ĐẦY ĐỦ -->
 <a href="https://www.youtube.com/@MinhhNhatt-0504">
   <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
 </a>
@@ -254,6 +289,26 @@ p.style.left=Math.random()*100+"vw";
 p.style.animationDuration=6+Math.random()*10+"s";
 document.body.appendChild(p);
 }
+
+/* ===== ADDED MUSIC LOGIC ===== */
+const music = document.getElementById("bg-music");
+const volume = document.getElementById("volume");
+
+const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+let savedVol = localStorage.getItem("volume");
+
+volume.value = savedVol ?? 0.4;
+music.volume = isMobile ? 0 : volume.value;
+music.muted = isMobile;
+
+volume.oninput = () => {
+  music.volume = volume.value;
+  localStorage.setItem("volume", volume.value);
+};
+
+document.addEventListener("click", () => {
+  if (music.paused) music.play();
+}, { once: true });
 </script>
 
 </body>
