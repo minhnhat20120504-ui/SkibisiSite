@@ -126,7 +126,7 @@ canvas {
   transition: opacity .35s ease;
 }
 
-/* ===== ADDED MUSIC UI ===== */
+/* ===== MUSIC UI ===== */
 .music-control {
   position: fixed;
   bottom: 18px;
@@ -165,7 +165,7 @@ canvas {
   <button data-lang="zh">🇨🇳</button>
 </div>
 
-<!-- ===== ADDED MUSIC ELEMENT ===== -->
+<!-- MUSIC -->
 <audio id="bg-music" preload="auto" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -232,6 +232,24 @@ Pham Minh Nhat._.
 
 </div>
 </div>
+
+<!-- BUTTON ENABLE MUSIC (ADDED) -->
+<button id="enable-music" style="
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 100000;
+  background: rgba(0,0,0,.75);
+  color: white;
+  border: 1px solid white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: monospace;
+">
+▶ Bật nhạc
+</button>
+
 <audio id="bg-music" loop preload="auto">
   <source src="https://youtu.be/9yqhwJ8Pd8w?si=I8_HgrKs3trJTN8y" type="audio/mpeg">
 </audio>
@@ -241,10 +259,8 @@ Pham Minh Nhat._.
 function detectLang() {
   const saved = localStorage.getItem("lang");
   if (saved) return saved;
-
   const nav = navigator.language.slice(0,2);
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
   if (tz.includes("Asia/Tokyo")) return "ja";
   if (tz.includes("Asia/Seoul")) return "ko";
   if (tz.includes("Asia/Shanghai") || tz.includes("Asia/Chongqing")) return "zh";
@@ -267,7 +283,6 @@ function updateLang(lang) {
 }
 
 updateLang(currentLang);
-
 document.querySelectorAll(".lang-switch button").forEach(btn => {
   btn.onclick = () => updateLang(btn.dataset.lang);
 });
@@ -293,25 +308,28 @@ p.style.animationDuration=6+Math.random()*10+"s";
 document.body.appendChild(p);
 }
 
-/* ===== ADDED MUSIC LOGIC ===== */
+/* ===== MUSIC LOGIC ===== */
 const music = document.getElementById("bg-music");
 const volume = document.getElementById("volume");
-
-const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
-let savedVol = localStorage.getItem("volume");
-
-volume.value = savedVol ?? 0.4;
-music.volume = isMobile ? 0 : volume.value;
-music.muted = isMobile;
-
+let savedVol = localStorage.getItem("volume") || 0.4;
+volume.value = savedVol;
+music.volume = savedVol;
 volume.oninput = () => {
   music.volume = volume.value;
   localStorage.setItem("volume", volume.value);
 };
 
-document.addEventListener("click", () => {
-  if (music.paused) music.play();
-}, { once: true });
+/* ===== FORCE PLAY (MOBILE + PC) ===== */
+const enableBtn = document.getElementById("enable-music");
+enableBtn.addEventListener("click", async () => {
+  try {
+    music.muted = false;
+    await music.play();
+    enableBtn.style.display = "none";
+  } catch (e) {
+    alert("Trình duyệt chặn phát nhạc, hãy bấm lại!");
+  }
+});
 </script>
 
 </body>
