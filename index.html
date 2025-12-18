@@ -17,8 +17,8 @@
 }
 
 .lang-switch button {
-  background: rgba(0,0,0,.65);
-  border: 1px solid #fff;
+  background: rgba(0,0,0,.6);
+  border: 1px solid #000;
   color: #fff;
   font-size: 18px;
   padding: 6px 8px;
@@ -28,8 +28,8 @@
 }
 
 .lang-switch button:hover {
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
 /* Mobile UI */
@@ -39,20 +39,48 @@
     bottom: 12px;
     right: 50%;
     transform: translateX(50%);
-    background: rgba(0,0,0,.6);
+    background: rgba(255,255,255,.35);
+    backdrop-filter: blur(8px);
     padding: 6px 10px;
     border-radius: 14px;
   }
 }
 
-/* ===== Base ===== */
+/* ===== BASE + GLASS BACKGROUND ===== */
 body {
   margin: 0;
   min-height: 100vh;
   font-family: monospace;
-  color: white;
-  background: black;
+  color: #000;
   overflow: hidden;
+
+  background: linear-gradient(
+    -45deg,
+    #ffffff,
+    #f0f0f0,
+    #dcdcdc,
+    #f7f7f7
+  );
+  background-size: 400% 400%;
+  animation: glassBG 18s ease infinite;
+}
+
+@keyframes glassBG {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* Glass overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(0,0,0,.08), transparent 45%);
+  backdrop-filter: blur(14px);
+  z-index: -4;
 }
 
 /* ===== Background effects ===== */
@@ -70,13 +98,13 @@ body {
   position: absolute;
   width: 1px;
   height: 100%;
-  background: rgba(255,255,255,.6);
+  background: rgba(0,0,0,.25);
   animation: hack 4s linear infinite;
 }
 
 @keyframes hack {
   from { transform: translateY(-100%); opacity: 0 }
-  50% { opacity: .5 }
+  50% { opacity: .4 }
   to { transform: translateY(100%); opacity: 0 }
 }
 
@@ -84,13 +112,14 @@ canvas {
   position: fixed;
   inset: 0;
   z-index: -2;
+  opacity: .25;
 }
 
 .particle {
   position: fixed;
   width: 2px;
   height: 2px;
-  background: rgba(255,255,255,.6);
+  background: rgba(0,0,0,.4);
   animation: floatUp linear infinite;
   z-index: -1;
 }
@@ -109,17 +138,19 @@ canvas {
 }
 
 .center-content {
-  background: rgba(0,0,0,.35);
-  backdrop-filter: blur(6px);
-  padding: 30px;
-  border-radius: 14px;
+  background: rgba(255,255,255,.35);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(0,0,0,.15);
+  padding: 32px;
+  border-radius: 18px;
   text-align: center;
   max-width: 900px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
 }
 
 .logo {
   max-width: 180px;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,.6));
+  filter: drop-shadow(0 0 6px rgba(0,0,0,.4));
 }
 
 .fade {
@@ -132,7 +163,8 @@ canvas {
   bottom: 18px;
   left: 18px;
   z-index: 99999;
-  background: rgba(0,0,0,.65);
+  background: rgba(255,255,255,.35);
+  backdrop-filter: blur(10px);
   padding: 10px 14px;
   border-radius: 12px;
   display: flex;
@@ -165,7 +197,6 @@ canvas {
   <button data-lang="zh">🇨🇳</button>
 </div>
 
-<!-- MUSIC -->
 <audio id="bg-music" preload="auto" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -196,23 +227,10 @@ canvas {
 Tham Gia Ngay Sivi Discord để được hỗ trợ!!
 </p>
 
-<h1 data-vi="Pham Minh Nhat._."
-    data-en="Pham Minh Nhat._."
-    data-ja="Pham Minh Nhat._."
-    data-ko="Pham Minh Nhat._."
-    data-zh="Pham Minh Nhat._.">
-Pham Minh Nhat._.
-</h1>
-
+<h1>Pham Minh Nhat._.</h1>
 <hr>
 
-<h3 data-vi="🔗 Kết nối với tôi"
-    data-en="🔗 Connect With Me"
-    data-ja="🔗 接続"
-    data-ko="🔗 연결"
-    data-zh="🔗 联系我">
-🔗 Kết nối với tôi
-</h3>
+<h3>🔗 Kết nối với tôi</h3>
 
 <a href="https://www.youtube.com/@MinhhNhatt-0504">
   <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
@@ -233,15 +251,15 @@ Pham Minh Nhat._.
 </div>
 </div>
 
-<!-- BUTTON ENABLE MUSIC (ADDED) -->
 <button id="enable-music" style="
   position: fixed;
   bottom: 18px;
   right: 18px;
   z-index: 100000;
-  background: rgba(0,0,0,.75);
-  color: white;
-  border: 1px solid white;
+  background: rgba(255,255,255,.4);
+  backdrop-filter: blur(10px);
+  color: #000;
+  border: 1px solid #000;
   padding: 8px 14px;
   border-radius: 10px;
   cursor: pointer;
@@ -250,52 +268,16 @@ Pham Minh Nhat._.
 ▶ Bật nhạc
 </button>
 
-<audio id="bg-music" loop preload="auto">
-  <source src="https://youtu.be/9yqhwJ8Pd8w?si=I8_HgrKs3trJTN8y" type="audio/mpeg">
-</audio>
-
 <script>
-/* ===== Detect Language (NO API) ===== */
-function detectLang() {
-  const saved = localStorage.getItem("lang");
-  if (saved) return saved;
-  const nav = navigator.language.slice(0,2);
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  if (tz.includes("Asia/Tokyo")) return "ja";
-  if (tz.includes("Asia/Seoul")) return "ko";
-  if (tz.includes("Asia/Shanghai") || tz.includes("Asia/Chongqing")) return "zh";
-  if (nav === "vi") return "vi";
-  return "en";
-}
-
-let currentLang = detectLang();
-const content = document.getElementById("content");
-
-function updateLang(lang) {
-  content.style.opacity = 0;
-  setTimeout(() => {
-    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
-      el.textContent = el.getAttribute("data-" + lang);
-    });
-    content.style.opacity = 1;
-  }, 200);
-  localStorage.setItem("lang", lang);
-}
-
-updateLang(currentLang);
-document.querySelectorAll(".lang-switch button").forEach(btn => {
-  btn.onclick = () => updateLang(btn.dataset.lang);
-});
-
-/* ===== Matrix ===== */
+/* ===== MATRIX ===== */
 const c = document.getElementById("matrix"), x = c.getContext("2d");
 function r(){c.width=innerWidth;c.height=innerHeight}
 r();addEventListener("resize",r);
 const l="01#$@%&",f=14,d=Array(Math.floor(c.width/f)).fill(1);
 setInterval(()=>{
-x.fillStyle="rgba(0,0,0,.15)";
+x.fillStyle="rgba(255,255,255,.12)";
 x.fillRect(0,0,c.width,c.height);
-x.fillStyle="#fff";x.font=f+"px monospace";
+x.fillStyle="#000";x.font=f+"px monospace";
 d.forEach((v,i)=>{x.fillText(l[Math.random()*l.length|0],i*f,v*f);d[i]=v*f>c.height&&Math.random()>.98?0:v+1})
 },50);
 
@@ -307,29 +289,6 @@ p.style.left=Math.random()*100+"vw";
 p.style.animationDuration=6+Math.random()*10+"s";
 document.body.appendChild(p);
 }
-
-/* ===== MUSIC LOGIC ===== */
-const music = document.getElementById("bg-music");
-const volume = document.getElementById("volume");
-let savedVol = localStorage.getItem("volume") || 0.4;
-volume.value = savedVol;
-music.volume = savedVol;
-volume.oninput = () => {
-  music.volume = volume.value;
-  localStorage.setItem("volume", volume.value);
-};
-
-/* ===== FORCE PLAY (MOBILE + PC) ===== */
-const enableBtn = document.getElementById("enable-music");
-enableBtn.addEventListener("click", async () => {
-  try {
-    music.muted = false;
-    await music.play();
-    enableBtn.style.display = "none";
-  } catch (e) {
-    alert("Trình duyệt chặn phát nhạc, hãy bấm lại!");
-  }
-});
 </script>
 
 </body>
