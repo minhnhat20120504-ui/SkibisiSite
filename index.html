@@ -17,8 +17,8 @@
 }
 
 .lang-switch button {
-  background: rgba(0,0,0,.6);
-  border: 1px solid #000;
+  background: rgba(20,20,20,.65);
+  border: 1px solid rgba(255,255,255,.4);
   color: #fff;
   font-size: 18px;
   padding: 6px 8px;
@@ -28,8 +28,8 @@
 }
 
 .lang-switch button:hover {
-  background: #000;
-  color: #fff;
+  background: rgba(255,255,255,.85);
+  color: #000;
 }
 
 /* Mobile UI */
@@ -39,30 +39,30 @@
     bottom: 12px;
     right: 50%;
     transform: translateX(50%);
-    background: rgba(255,255,255,.35);
-    backdrop-filter: blur(8px);
+    background: rgba(20,20,20,.55);
+    backdrop-filter: blur(18px);
     padding: 6px 10px;
-    border-radius: 14px;
+    border-radius: 16px;
   }
 }
 
-/* ===== BASE + GLASS BACKGROUND ===== */
+/* ===== BASE : DARK APPLE GLASS ===== */
 body {
   margin: 0;
   min-height: 100vh;
   font-family: monospace;
-  color: #000;
+  color: #fff;
   overflow: hidden;
 
   background: linear-gradient(
     -45deg,
-    #ffffff,
-    #f0f0f0,
-    #dcdcdc,
-    #f7f7f7
+    #0b0b0b,
+    #141414,
+    #1c1c1c,
+    #101010
   );
   background-size: 400% 400%;
-  animation: glassBG 18s ease infinite;
+  animation: glassBG 22s ease infinite;
 }
 
 @keyframes glassBG {
@@ -71,16 +71,26 @@ body {
   100% { background-position: 0% 50% }
 }
 
-/* Glass overlay */
+/* ===== GLASS + LIGHT BLOOM ===== */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(0,0,0,.08), transparent 45%);
-  backdrop-filter: blur(14px);
+    radial-gradient(circle at 25% 20%, rgba(255,255,255,.12), transparent 45%),
+    radial-gradient(circle at 75% 80%, rgba(255,255,255,.08), transparent 45%);
+  backdrop-filter: blur(28px) saturate(180%);
   z-index: -4;
+}
+
+/* ===== HIGH-END NOISE ===== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -3;
 }
 
 /* ===== Background effects ===== */
@@ -91,15 +101,15 @@ body::before {
 .hacking-theme {
   position: fixed;
   inset: 0;
-  z-index: -3;
+  z-index: -2;
 }
 
 .hacking-theme div {
   position: absolute;
   width: 1px;
   height: 100%;
-  background: rgba(0,0,0,.25);
-  animation: hack 4s linear infinite;
+  background: rgba(255,255,255,.18);
+  animation: hack 5s linear infinite;
 }
 
 @keyframes hack {
@@ -111,22 +121,26 @@ body::before {
 canvas {
   position: fixed;
   inset: 0;
-  z-index: -2;
-  opacity: .25;
+  z-index: -1;
+  opacity: .35;
 }
 
+/* ===== PREMIUM PARTICLES ===== */
 .particle {
   position: fixed;
   width: 2px;
   height: 2px;
-  background: rgba(0,0,0,.4);
+  background: rgba(255,255,255,.55);
+  border-radius: 50%;
+  filter: blur(1px);
   animation: floatUp linear infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 @keyframes floatUp {
-  from { transform: translateY(100vh); opacity: 0 }
-  to { transform: translateY(-10vh); opacity: 1 }
+  from { transform: translateY(110vh); opacity: 0 }
+  30% { opacity: .6 }
+  to { transform: translateY(-15vh); opacity: 0 }
 }
 
 /* ===== Center ===== */
@@ -138,19 +152,21 @@ canvas {
 }
 
 .center-content {
-  background: rgba(255,255,255,.35);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgba(0,0,0,.15);
-  padding: 32px;
-  border-radius: 18px;
+  background: rgba(20,20,20,.55);
+  backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 34px;
+  border-radius: 22px;
   text-align: center;
   max-width: 900px;
-  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,.6),
+    inset 0 0 0 1px rgba(255,255,255,.05);
 }
 
 .logo {
   max-width: 180px;
-  filter: drop-shadow(0 0 6px rgba(0,0,0,.4));
+  filter: drop-shadow(0 0 10px rgba(255,255,255,.35));
 }
 
 .fade {
@@ -163,13 +179,14 @@ canvas {
   bottom: 18px;
   left: 18px;
   z-index: 99999;
-  background: rgba(255,255,255,.35);
-  backdrop-filter: blur(10px);
+  background: rgba(20,20,20,.55);
+  backdrop-filter: blur(18px);
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
+  border: 1px solid rgba(255,255,255,.15);
 }
 
 .music-control input[type="range"] {
@@ -219,15 +236,9 @@ canvas {
 
 <img class="logo" src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif">
 
-<p data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
-   data-en="Join Sivi Discord to get support!!"
-   data-ja="サポートのためにSivi Discordに参加してください"
-   data-ko="지원을 받으려면 Sivi Discord에 참여하세요"
-   data-zh="加入 Sivi Discord 获取支持">
-Tham Gia Ngay Sivi Discord để được hỗ trợ!!
-</p>
-
+<p>Tham Gia Ngay Sivi Discord để được hỗ trợ!!</p>
 <h1>Pham Minh Nhat._.</h1>
+
 <hr>
 
 <h3>🔗 Kết nối với tôi</h3>
@@ -256,12 +267,12 @@ Tham Gia Ngay Sivi Discord để được hỗ trợ!!
   bottom: 18px;
   right: 18px;
   z-index: 100000;
-  background: rgba(255,255,255,.4);
-  backdrop-filter: blur(10px);
-  color: #000;
-  border: 1px solid #000;
+  background: rgba(20,20,20,.55);
+  backdrop-filter: blur(18px);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.2);
   padding: 8px 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   font-family: monospace;
 ">
@@ -275,18 +286,18 @@ function r(){c.width=innerWidth;c.height=innerHeight}
 r();addEventListener("resize",r);
 const l="01#$@%&",f=14,d=Array(Math.floor(c.width/f)).fill(1);
 setInterval(()=>{
-x.fillStyle="rgba(255,255,255,.12)";
+x.fillStyle="rgba(0,0,0,.2)";
 x.fillRect(0,0,c.width,c.height);
-x.fillStyle="#000";x.font=f+"px monospace";
-d.forEach((v,i)=>{x.fillText(l[Math.random()*l.length|0],i*f,v*f);d[i]=v*f>c.height&&Math.random()>.98?0:v+1})
+x.fillStyle="#fff";x.font=f+"px monospace";
+d.forEach((v,i)=>{x.fillText(l[Math.random()*l.length|0],i*f,v*f);d[i]=v*f>c.height&&Math.random()>.985?0:v+1})
 },50);
 
-/* ===== Particles ===== */
-for(let i=0;i<50;i++){
+/* ===== PREMIUM PARTICLES ===== */
+for(let i=0;i<65;i++){
 let p=document.createElement("div");
 p.className="particle";
 p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=6+Math.random()*10+"s";
+p.style.animationDuration=10+Math.random()*14+"s";
 document.body.appendChild(p);
 }
 </script>
