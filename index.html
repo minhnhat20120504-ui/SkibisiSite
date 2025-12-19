@@ -22,7 +22,7 @@ body{
   transition:background .6s,color .6s;
 }
 
-/* ===== THEME TOGGLE ===== */
+/* THEME */
 .theme-toggle{
   position:fixed;
   top:14px;
@@ -37,7 +37,7 @@ body{
   font-size:18px;
 }
 
-/* ===== LANG ===== */
+/* LANG */
 .lang-switch{
   position:fixed;
   top:14px;
@@ -56,14 +56,10 @@ body{
   cursor:pointer;
 }
 
-/* ===== BACKGROUND ===== */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-}
+/* BACKGROUND */
+canvas{position:fixed;inset:0;z-index:-10}
 
-/* ===== CURSOR ===== */
+/* CURSOR */
 .cursor{
   position:fixed;
   width:14px;height:14px;
@@ -82,43 +78,37 @@ canvas{
   z-index:3;
 }
 
-/* ===== CENTER FIXED ===== */
+/* CENTER */
 .center-wrapper{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:60px 20px; /* 🔥 FIX MẤT CỮ */
+  padding:60px 20px;
 }
-
 .center-content{
   background:rgba(30,30,30,.55);
   backdrop-filter:blur(42px) saturate(240%);
-  padding:48px 56px;           /* 🔥 GIÃN NỘI DUNG */
+  padding:48px 56px;
   border-radius:28px;
   border:1px solid rgba(255,255,255,.25);
   box-shadow:0 60px 160px hsla(var(--accent),80%,50%,.35);
   text-align:center;
-
-  display:flex;                /* 🔥 FIX CHÍNH */
+  display:flex;
   flex-direction:column;
   align-items:center;
-  gap:18px;                    /* 🔥 CỨU LAYOUT */
+  gap:18px;
   max-width:920px;
 }
-
 .logo{
   max-width:180px;
   margin-bottom:10px;
   border-radius:16px;
   filter:drop-shadow(0 0 22px hsla(var(--accent),100%,70%,.65));
 }
+.center-content a{margin:6px 4px}
 
-.center-content a{
-  margin:6px 4px;              /* badge không dính */
-}
-
-/* ===== MUSIC ===== */
+/* MUSIC */
 .music-control{
   position:fixed;
   bottom:18px;
@@ -174,18 +164,30 @@ canvas{
 
 <img class="logo" src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif">
 
-<p data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
-   data-en="Join Sivi Discord to get support!!">
+<p
+ data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
+ data-en="Join Sivi Discord to get support!!"
+ data-ja="サポートを受けるには Sivi Discord に参加してください!!"
+ data-ko="지원을 받으려면 Sivi Discord에 참여하세요!!"
+ data-zh="加入 Sivi Discord 以获得支持!!">
 </p>
 
-<h1 data-vi="Pham Minh Nhat._."
-    data-en="Pham Minh Nhat._.">
+<h1
+ data-vi="Pham Minh Nhat._."
+ data-en="Pham Minh Nhat._."
+ data-ja="Pham Minh Nhat._."
+ data-ko="Pham Minh Nhat._."
+ data-zh="Pham Minh Nhat._.">
 </h1>
 
 <hr style="width:100%;opacity:.6">
 
-<h3 data-vi="🔗 Kết nối với tôi"
-    data-en="🔗 Connect With Me">
+<h3
+ data-vi="🔗 Kết nối với tôi"
+ data-en="🔗 Connect With Me"
+ data-ja="🔗 私とつながる"
+ data-ko="🔗 나와 연결"
+ data-zh="🔗 联系我">
 </h3>
 
 <div>
@@ -209,7 +211,7 @@ canvas{
 <button id="enable-music">▶ Bật nhạc</button>
 
 <script>
-/* ===== THEME ===== */
+/* THEME */
 const root=document.documentElement;
 const toggle=document.getElementById("themeToggle");
 let userTheme=localStorage.getItem("theme");
@@ -239,7 +241,7 @@ toggle.onclick=()=>{
   applyTheme(userTheme);
 };
 
-/* ===== LANG ===== */
+/* LANGUAGE */
 const content=document.getElementById("content");
 function updateLang(l){
   content.querySelectorAll("[data-"+l+"]").forEach(e=>{
@@ -252,7 +254,7 @@ document.querySelectorAll(".lang-switch button").forEach(b=>{
   b.onclick=()=>updateLang(b.dataset.lang);
 });
 
-/* ===== CURSOR ===== */
+/* CURSOR */
 const cur=document.getElementById("cursor");
 const light=document.getElementById("cursorLight");
 let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y,vx=0,vy=0;
@@ -265,7 +267,7 @@ addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY});
   requestAnimationFrame(anim);
 })();
 
-/* ===== MUSIC + BEAT ===== */
+/* MUSIC + BEAT */
 const music=document.getElementById("bg-music");
 const vol=document.getElementById("volume");
 const btn=document.getElementById("enable-music");
