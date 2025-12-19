@@ -135,6 +135,76 @@ canvas{position:fixed;inset:0;z-index:-10}
 </head>
 
 <body>
+<!-- ================= HARDCORE PROTECT LAYER ================= -->
+<script>
+(function(){
+  /* ===== BASIC BLOCK ===== */
+  document.addEventListener("contextmenu",e=>e.preventDefault());
+  document.addEventListener("dragstart",e=>e.preventDefault());
+  document.addEventListener("selectstart",e=>e.preventDefault());
+
+  document.addEventListener("keydown",e=>{
+    if(
+      e.key==="F12" ||
+      (e.ctrlKey&&e.shiftKey&&["I","J","C","K"].includes(e.key)) ||
+      (e.ctrlKey&&["U","S"].includes(e.key))
+    ){
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  });
+
+  /* ===== DEVTOOLS SIZE DETECT ===== */
+  let tripped=false;
+  function kill(){
+    if(tripped) return;
+    tripped=true;
+    document.body.innerHTML =
+      "<style>body{background:#000;color:#f55;font-family:monospace;display:flex;align-items:center;justify-content:center;height:100vh}</style>"+
+      "<h1>⚠ ACCESS DENIED ⚠</h1>";
+    setTimeout(()=>location.reload(),1200);
+    while(true){}
+  }
+  setInterval(()=>{
+    const w = window.outerWidth - window.innerWidth > 160;
+    const h = window.outerHeight - window.innerHeight > 160;
+    if(w || h) kill();
+  },600);
+
+  /* ===== DEBUGGER TRAP ===== */
+  setInterval(()=>{
+    debugger;
+  },800);
+
+  /* ===== CONSOLE TRAP ===== */
+  const element = new Image();
+  Object.defineProperty(element,"id",{
+    get(){ kill(); }
+  });
+  console.log(element);
+
+  /* ===== DEVTOOLS OPEN BY FUNCTION TO STRING ===== */
+  const toString = Function.prototype.toString;
+  Function.prototype.toString = function(){
+    if(this === Function.prototype.toString) kill();
+    return toString.apply(this, arguments);
+  };
+
+  /* ===== FAKE CONSOLE ===== */
+  console.log = function(){
+    kill();
+  };
+
+  /* ===== SOURCE VIEW BLOCK ===== */
+  if(location.href.startsWith("view-source:")){
+    document.documentElement.innerHTML="";
+    location.replace("about:blank");
+  }
+
+})();
+</script>
+<!-- ================= END HARDCORE PROTECT ================= -->
 
 <div class="theme-toggle" id="themeToggle">🌙</div>
 
