@@ -3,69 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pham Minh Nhat – ULTRA</title>
+<title>Pham Minh Nhat</title>
 
 <style>
-:root{
-  --bg:#000;
-  --glass:rgba(0,0,0,.55);
-  --text:#fff;
-  --accent:#7df9ff;
-}
-body.light{
-  --bg:#f6f7fb;
-  --glass:rgba(255,255,255,.65);
-  --text:#000;
-}
-
+/* ===== RESET ===== */
 *{box-sizing:border-box}
 body{
   margin:0;
   min-height:100vh;
-  background:var(--bg);
-  color:var(--text);
   font-family:monospace;
+  color:#fff;
+  background:#000;
   overflow:hidden;
-  cursor:none;
 }
 
-/* ===== CURSOR ===== */
-.cursor{
-  position:fixed;
-  width:16px;height:16px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 20px var(--accent);
+/* ===== NOISE ===== */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
   pointer-events:none;
-  z-index:999999;
+  z-index:-2;
 }
 
-/* ===== CANVAS ===== */
-canvas{position:fixed;inset:0;z-index:-3}
+/* ===== PARTICLE ===== */
+canvas{
+  position:fixed;inset:0;
+  z-index:-3;
+}
 
-/* ===== LANG ===== */
+/* ===== LANG SWITCH ===== */
 .lang-switch{
-  position:fixed;top:14px;right:18px;
-  display:flex;gap:6px;z-index:99999
+  position:fixed;
+  top:14px;right:18px;
+  z-index:99999;
+  display:flex;gap:6px
 }
 .lang-switch button{
-  background:var(--glass);
-  border:1px solid var(--text);
-  color:var(--text);
+  background:rgba(0,0,0,.6);
+  border:1px solid #fff;
+  color:#fff;
+  font-size:18px;
   padding:6px 8px;
   border-radius:6px;
-  cursor:pointer;
-}
-
-/* ===== THEME TOGGLE ===== */
-#themeToggle{
-  position:fixed;
-  top:14px;left:18px;
-  z-index:99999;
-  background:var(--glass);
-  border:1px solid var(--text);
-  padding:6px 10px;
-  border-radius:8px;
   cursor:pointer;
 }
 
@@ -77,20 +57,20 @@ canvas{position:fixed;inset:0;z-index:-3}
   align-items:center;
 }
 .center-content{
-  background:var(--glass);
-  backdrop-filter:blur(22px);
-  padding:36px 42px;
-  border-radius:22px;
+  background:rgba(20,20,20,.55);
+  backdrop-filter:blur(16px);
+  padding:40px;
+  border-radius:20px;
   text-align:center;
-  max-width:900px;
-  box-shadow:0 0 50px rgba(0,0,0,.6);
-  transition:transform .15s ease;
+  max-width:880px;
 }
 
 /* ===== TEXT ===== */
-.text-anim{animation:textSwap .4s ease}
-@keyframes textSwap{
-  from{opacity:0;transform:translateY(8px);filter:blur(4px)}
+.fade-text{
+  animation:fadeUp .35s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(6px)}
   to{opacity:1}
 }
 
@@ -98,30 +78,26 @@ canvas{position:fixed;inset:0;z-index:-3}
 .music-control{
   position:fixed;
   bottom:18px;left:18px;
-  background:var(--glass);
-  padding:10px 14px;
+  background:rgba(0,0,0,.6);
+  padding:10px;
   border-radius:12px;
   z-index:99999
 }
 #enable-music{
   position:fixed;
   bottom:18px;right:18px;
-  background:var(--glass);
-  border:1px solid var(--text);
-  color:var(--text);
+  background:rgba(0,0,0,.7);
+  color:#fff;
+  border:1px solid #fff;
   padding:8px 14px;
   border-radius:10px;
-  z-index:99999;
   cursor:pointer;
+  z-index:99999
 }
 </style>
 </head>
 
 <body>
-
-<div class="cursor" id="cursor"></div>
-
-<button id="themeToggle">🌗</button>
 
 <div class="lang-switch">
   <button data-lang="vi">🇻🇳</button>
@@ -131,7 +107,7 @@ canvas{position:fixed;inset:0;z-index:-3}
   <button data-lang="zh">🇨🇳</button>
 </div>
 
-<audio id="bg-music" loop preload="auto" crossorigin="anonymous">
+<audio id="bg-music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -140,70 +116,62 @@ canvas{position:fixed;inset:0;z-index:-3}
 </div>
 <button id="enable-music">▶ Bật nhạc</button>
 
-<canvas id="bg"></canvas>
+<canvas id="particles"></canvas>
 
 <div class="center-wrapper">
 <div class="center-content" id="content">
-  <img src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif" width="180">
 
-  <p
-   data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
-   data-en="Join Sivi Discord to get support!!"
-   data-ja="Sivi Discordに参加してください"
-   data-ko="Sivi Discord에 참여하세요"
-   data-zh="加入 Sivi Discord 获取支持">
-  </p>
+<img src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif" width="170">
 
-  <h1
-   data-vi="Pham Minh Nhat._."
-   data-en="Pham Minh Nhat._."
-   data-ja="Pham Minh Nhat._."
-   data-ko="Pham Minh Nhat._."
-   data-zh="Pham Minh Nhat._.">
-  </h1>
+<p
+ data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
+ data-en="Join Sivi Discord to get support!!"
+ data-ja="Sivi Discordに参加してください"
+ data-ko="Sivi Discord에 참여하세요"
+ data-zh="加入 Sivi Discord 获取支持">
+</p>
 
-  <h3
-   data-vi="🔗 Kết nối với tôi"
-   data-en="🔗 Connect With Me"
-   data-ja="🔗 接続"
-   data-ko="🔗 연결"
-   data-zh="🔗 联系我">
-  </h3>
+<h1
+ data-vi="Pham Minh Nhat._."
+ data-en="Pham Minh Nhat._."
+ data-ja="Pham Minh Nhat._."
+ data-ko="Pham Minh Nhat._."
+ data-zh="Pham Minh Nhat._.">
+</h1>
+
+<h3
+ data-vi="🔗 Kết nối với tôi"
+ data-en="🔗 Connect With Me"
+ data-ja="🔗 接続"
+ data-ko="🔗 연결"
+ data-zh="🔗 联系我">
+</h3>
+
 </div>
 </div>
 
 <script>
-/* ===== CURSOR SPRING ===== */
-let cx=0,cy=0,mx=0,my=0;
-const cursor=document.getElementById("cursor");
-addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY});
-(function loop(){
-  cx+=(mx-cx)*0.18;
-  cy+=(my-cy)*0.18;
-  cursor.style.transform=`translate(${cx-8}px,${cy-8}px)`;
-  requestAnimationFrame(loop);
+/* ===== PARTICLE LIGHT ===== */
+const c=document.getElementById("particles"),
+ctx=c.getContext("2d");
+function r(){c.width=innerWidth;c.height=innerHeight}
+r();addEventListener("resize",r);
+
+let p=[...Array(40)].map(()=>({
+  x:Math.random()*c.width,
+  y:Math.random()*c.height,
+  v:.2+Math.random()*.4
+}));
+(function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.fillStyle="rgba(255,255,255,.25)";
+  p.forEach(o=>{
+    o.y-=o.v;
+    if(o.y<0)o.y=c.height;
+    ctx.fillRect(o.x,o.y,2,2);
+  });
+  requestAnimationFrame(draw);
 })();
-
-/* ===== PARALLAX ===== */
-const box=document.querySelector(".center-content");
-addEventListener("mousemove",e=>{
-  box.style.transform=
-   `translate(${(e.clientX-innerWidth/2)/40}px,${(e.clientY-innerHeight/2)/40}px)`;
-});
-
-/* ===== THEME ===== */
-const themeBtn=document.getElementById("themeToggle");
-function autoTheme(){
-  const h=new Date().getHours();
-  if(h>=18||h<6)document.body.classList.remove("light");
-  else document.body.classList.add("light");
-}
-const savedTheme=localStorage.getItem("theme");
-savedTheme?document.body.classList.toggle("light",savedTheme==="light"):autoTheme();
-themeBtn.onclick=()=>{
-  document.body.classList.toggle("light");
-  localStorage.setItem("theme",document.body.classList.contains("light")?"light":"dark");
-};
 
 /* ===== LANGUAGE ===== */
 function detectLang(){
@@ -216,10 +184,10 @@ function detectLang(){
 }
 function setLang(l){
   document.querySelectorAll("[data-en]").forEach(el=>{
-    el.classList.remove("text-anim");
+    el.classList.remove("fade-text");
     void el.offsetWidth;
     el.textContent=el.dataset[l]||el.dataset.en;
-    el.classList.add("text-anim");
+    el.classList.add("fade-text");
   });
   localStorage.setItem("lang",l);
 }
@@ -227,64 +195,18 @@ setLang(localStorage.getItem("lang")||detectLang());
 document.querySelectorAll(".lang-switch button")
 .forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
-/* ===== MUSIC + VISUALIZER ===== */
-const music=document.getElementById("bg-music");
-const vol=document.getElementById("volume");
+/* ===== MUSIC ===== */
+const music=document.getElementById("bg-music"),
+vol=document.getElementById("volume");
 vol.value=localStorage.getItem("vol")||0.4;
 music.volume=vol.value;
 vol.oninput=()=>{music.volume=vol.value;localStorage.setItem("vol",vol.value)};
-
 document.getElementById("enable-music").onclick=async()=>{
-  await music.play();
-  this.style.display="none";
+  try{await music.play();event.target.style.display="none"}catch{}
 };
-
 document.addEventListener("visibilitychange",()=>{
-  if(!document.hidden && music.paused) music.play().catch(()=>{});
+  if(!document.hidden && !music.paused)music.play();
 });
-
-/* ===== GALAXY + BEAT ===== */
-const c=document.getElementById("bg"),ctx=c.getContext("2d");
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener("resize",resize);
-
-const AudioCtx=window.AudioContext||window.webkitAudioContext;
-const audioCtx=new AudioCtx();
-const src=audioCtx.createMediaElementSource(music);
-const analyser=audioCtx.createAnalyser();
-analyser.fftSize=256;
-src.connect(analyser);
-analyser.connect(audioCtx.destination);
-const data=new Uint8Array(analyser.frequencyBinCount);
-
-let stars=[...Array(140)].map(()=>({
-  x:Math.random()*c.width,
-  y:Math.random()*c.height,
-  r:Math.random()*2+1
-}));
-
-function draw(){
-  analyser.getByteFrequencyData(data);
-  const bass=data[2]/255;
-
-  ctx.fillStyle="rgba(0,0,0,.25)";
-  ctx.fillRect(0,0,c.width,c.height);
-
-  stars.forEach(s=>{
-    s.y+=0.3+bass*6;
-    if(s.y>c.height)s.y=0;
-    ctx.fillStyle=`rgba(255,255,255,${0.5+bass})`;
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r+bass*2,0,Math.PI*2);
-    ctx.fill();
-  });
-
-  document.documentElement.style.setProperty("--accent",
-    `hsl(${180+bass*120},100%,60%)`);
-
-  requestAnimationFrame(draw);
-}
-draw();
 </script>
 
 </body>
