@@ -6,330 +6,271 @@
 <title>Pham Minh Nhat</title>
 
 <style>
-/* ===== Language Switch ===== */
-.lang-switch {
-  position: fixed;
-  top: 14px;
-  right: 18px;
-  z-index: 99999;
-  display: flex;
-  gap: 6px;
+body{
+  margin:0;min-height:100vh;
+  font-family:monospace;color:#fff;
+  overflow:hidden;
+  background:linear-gradient(-45deg,#050505,#111,#1a1a1a,#0a0a0a);
+  background-size:400% 400%;
+  animation:bg 25s ease infinite;
+}
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
-.lang-switch button {
-  background: rgba(0,0,0,.65);
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 18px;
-  padding: 6px 8px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: .25s;
+/* Glass global */
+body::before{
+  content:"";position:fixed;inset:0;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(255,255,255,.14),transparent 40%),
+    radial-gradient(circle at 80% 80%,rgba(255,255,255,.1),transparent 45%);
+  backdrop-filter:blur(36px) saturate(220%);
+  z-index:-5;
 }
 
-.lang-switch button:hover {
-  background: #fff;
-  color: #000;
+/* Noise */
+body::after{
+  content:"";position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:-4;
 }
 
-/* Mobile UI */
-@media (max-width: 600px) {
-  .lang-switch {
-    top: auto;
-    bottom: 12px;
-    right: 50%;
-    transform: translateX(50%);
-    background: rgba(0,0,0,.6);
-    padding: 6px 10px;
-    border-radius: 14px;
-  }
+/* Cursor light */
+.cursor-light{
+  position:fixed;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(255,255,255,.22),transparent 60%);
+  border-radius:50%;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:3;
+  mix-blend-mode:screen;
 }
 
-/* ===== Base ===== */
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: monospace;
-  color: white;
-  background: black;
-  overflow: hidden;
+/* Canvases */
+#matrix{position:fixed;inset:0;z-index:-3;opacity:.28}
+#visualizer{position:fixed;bottom:0;left:0;width:100%;height:160px;z-index:1}
+
+/* Particles */
+.particle{
+  position:fixed;width:4px;height:4px;
+  background:white;border-radius:50%;
+  filter:blur(1.5px);
+  pointer-events:none;
 }
 
-/* ===== Background effects ===== */
-.hacking-theme, canvas, .particle {
-  pointer-events: none;
+/* Center glass */
+.center-wrapper{
+  min-height:100vh;display:flex;
+  justify-content:center;align-items:center;
 }
-
-.hacking-theme {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
+.center-content{
+  position:relative;
+  background:rgba(18,18,18,.55);
+  backdrop-filter:blur(38px) saturate(240%);
+  border:1px solid rgba(255,255,255,.18);
+  padding:40px;border-radius:26px;
+  box-shadow:0 50px 120px rgba(0,0,0,.7);
+  text-align:center;
+  transition:transform .15s ease;
+  overflow:hidden;
 }
-
-.hacking-theme div {
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background: rgba(255,255,255,.6);
-  animation: hack 4s linear infinite;
+.center-content::after{
+  content:"";position:absolute;inset:-40%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.18),transparent);
+  animation:shine 8s linear infinite;
 }
-
-@keyframes hack {
-  from { transform: translateY(-100%); opacity: 0 }
-  50% { opacity: .5 }
-  to { transform: translateY(100%); opacity: 0 }
+@keyframes shine{
+  from{transform:translateX(-60%)}
+  to{transform:translateX(60%)}
 }
+.logo{max-width:180px;filter:drop-shadow(0 0 12px rgba(255,255,255,.4))}
 
-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
+/* Music UI */
+.music-control{
+  position:fixed;bottom:18px;left:18px;
+  background:rgba(20,20,20,.6);
+  backdrop-filter:blur(18px);
+  padding:10px 14px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.2);
+  z-index:9999;
 }
+.music-control input{width:90px}
 
-.particle {
-  position: fixed;
-  width: 2px;
-  height: 2px;
-  background: rgba(255,255,255,.6);
-  animation: floatUp linear infinite;
-  z-index: -1;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(100vh); opacity: 0 }
-  to { transform: translateY(-10vh); opacity: 1 }
-}
-
-/* ===== Center ===== */
-.center-wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-content {
-  background: rgba(0,0,0,.35);
-  backdrop-filter: blur(6px);
-  padding: 30px;
-  border-radius: 14px;
-  text-align: center;
-  max-width: 900px;
-}
-
-.logo {
-  max-width: 180px;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,.6));
-}
-
-.fade {
-  transition: opacity .35s ease;
-}
-
-/* ===== MUSIC UI ===== */
-.music-control {
-  position: fixed;
-  bottom: 18px;
-  left: 18px;
-  z-index: 99999;
-  background: rgba(0,0,0,.65);
-  padding: 10px 14px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.music-control input[type="range"] {
-  width: 90px;
-}
-
-@media (max-width: 600px) {
-  .music-control {
-    bottom: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+#enable-music{
+  position:fixed;bottom:18px;right:18px;
+  background:rgba(20,20,20,.7);
+  border:1px solid rgba(255,255,255,.3);
+  color:white;padding:8px 14px;
+  border-radius:12px;
+  cursor:pointer;z-index:9999;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Language Flags -->
-<div class="lang-switch">
-  <button data-lang="vi">🇻🇳</button>
-  <button data-lang="en">🇺🇸</button>
-  <button data-lang="ja">🇯🇵</button>
-  <button data-lang="ko">🇰🇷</button>
-  <button data-lang="zh">🇨🇳</button>
-</div>
+<div class="cursor-light" id="cursorLight"></div>
 
-<!-- MUSIC -->
-<audio id="bg-music" preload="auto" loop>
+<audio id="bg-music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="music-control">
-  🔊
-  <input type="range" id="volume" min="0" max="1" step="0.01">
-</div>
-
-<div class="hacking-theme">
-  <div style="left:10%"></div><div style="left:20%"></div><div style="left:30%"></div>
-  <div style="left:40%"></div><div style="left:50%"></div><div style="left:60%"></div>
-  <div style="left:70%"></div><div style="left:80%"></div><div style="left:90%"></div>
+  🔊 <input type="range" id="volume" min="0" max="1" step="0.01">
 </div>
 
 <canvas id="matrix"></canvas>
+<canvas id="visualizer"></canvas>
 
 <div class="center-wrapper">
-<div class="center-content fade" id="content">
-
-<img class="logo" src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif">
-
-<p data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
-   data-en="Join Sivi Discord to get support!!"
-   data-ja="サポートのためにSivi Discordに参加してください"
-   data-ko="지원을 받으려면 Sivi Discord에 참여하세요"
-   data-zh="加入 Sivi Discord 获取支持">
-Tham Gia Ngay Sivi Discord để được hỗ trợ!!
-</p>
-
-<h1 data-vi="Pham Minh Nhat._."
-    data-en="Pham Minh Nhat._."
-    data-ja="Pham Minh Nhat._."
-    data-ko="Pham Minh Nhat._."
-    data-zh="Pham Minh Nhat._.">
-Pham Minh Nhat._.
-</h1>
-
-<hr>
-
-<h3 data-vi="🔗 Kết nối với tôi"
-    data-en="🔗 Connect With Me"
-    data-ja="🔗 接続"
-    data-ko="🔗 연결"
-    data-zh="🔗 联系我">
-🔗 Kết nối với tôi
-</h3>
-
-<a href="https://www.youtube.com/@MinhhNhatt-0504">
-  <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-</a>
-
-<a href="https://pmn.onrender.com/">
-  <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
-</a>
-
-<a href="https://discord.gg/P9yeTvwKjB">
-  <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-</a>
-
-<a href="https://guns.lol/phamminhnhat__">
-  <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
-</a>
-
-</div>
+  <div class="center-content" id="glass">
+    <img class="logo" src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif">
+    <p>Tham Gia Ngay Sivi Discord để được hỗ trợ!!</p>
+    <h1>Pham Minh Nhat._.</h1>
+  </div>
 </div>
 
-<!-- BUTTON ENABLE MUSIC (ADDED) -->
-<button id="enable-music" style="
-  position: fixed;
-  bottom: 18px;
-  right: 18px;
-  z-index: 100000;
-  background: rgba(0,0,0,.75);
-  color: white;
-  border: 1px solid white;
-  padding: 8px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: monospace;
-">
-▶ Bật nhạc
-</button>
-
-<audio id="bg-music" loop preload="auto">
-  <source src="https://youtu.be/9yqhwJ8Pd8w?si=I8_HgrKs3trJTN8y" type="audio/mpeg">
-</audio>
+<button id="enable-music">▶ Bật nhạc</button>
 
 <script>
-/* ===== Detect Language (NO API) ===== */
-function detectLang() {
-  const saved = localStorage.getItem("lang");
-  if (saved) return saved;
-  const nav = navigator.language.slice(0,2);
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  if (tz.includes("Asia/Tokyo")) return "ja";
-  if (tz.includes("Asia/Seoul")) return "ko";
-  if (tz.includes("Asia/Shanghai") || tz.includes("Asia/Chongqing")) return "zh";
-  if (nav === "vi") return "vi";
-  return "en";
+/* ===== MATRIX ===== */
+const mc=matrix,ctxM=mc.getContext("2d");
+function resize(){
+  mc.width=innerWidth;mc.height=innerHeight;
+  visualizer.width=innerWidth;
 }
-
-let currentLang = detectLang();
-const content = document.getElementById("content");
-
-function updateLang(lang) {
-  content.style.opacity = 0;
-  setTimeout(() => {
-    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
-      el.textContent = el.getAttribute("data-" + lang);
-    });
-    content.style.opacity = 1;
-  }, 200);
-  localStorage.setItem("lang", lang);
-}
-
-updateLang(currentLang);
-document.querySelectorAll(".lang-switch button").forEach(btn => {
-  btn.onclick = () => updateLang(btn.dataset.lang);
-});
-
-/* ===== Matrix ===== */
-const c = document.getElementById("matrix"), x = c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight}
-r();addEventListener("resize",r);
-const l="01#$@%&",f=14,d=Array(Math.floor(c.width/f)).fill(1);
+resize();addEventListener("resize",resize);
+const chars="01#$@%&",fs=14,cols=[];
+for(let i=0;i<mc.width/fs;i++)cols[i]=1;
 setInterval(()=>{
-x.fillStyle="rgba(0,0,0,.15)";
-x.fillRect(0,0,c.width,c.height);
-x.fillStyle="#fff";x.font=f+"px monospace";
-d.forEach((v,i)=>{x.fillText(l[Math.random()*l.length|0],i*f,v*f);d[i]=v*f>c.height&&Math.random()>.98?0:v+1})
+ctxM.fillStyle="rgba(0,0,0,.25)";
+ctxM.fillRect(0,0,mc.width,mc.height);
+ctxM.fillStyle="#fff";ctxM.font=fs+"px monospace";
+cols.forEach((y,i)=>{
+ctxM.fillText(chars[Math.random()*chars.length|0],i*fs,y*fs);
+cols[i]=y*fs>mc.height&&Math.random()>.985?0:y+1;
+});
 },50);
 
-/* ===== Particles ===== */
-for(let i=0;i<50;i++){
-let p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"vw";
-p.style.animationDuration=6+Math.random()*10+"s";
-document.body.appendChild(p);
-}
+/* Cursor light */
+const cl=cursorLight;
+addEventListener("mousemove",e=>{
+  cl.style.left=e.clientX+"px";
+  cl.style.top=e.clientY+"px";
+});
 
-/* ===== MUSIC LOGIC ===== */
-const music = document.getElementById("bg-music");
-const volume = document.getElementById("volume");
-let savedVol = localStorage.getItem("volume") || 0.4;
-volume.value = savedVol;
-music.volume = savedVol;
-volume.oninput = () => {
-  music.volume = volume.value;
-  localStorage.setItem("volume", volume.value);
+/* Glass parallax */
+const glass=document.getElementById("glass");
+addEventListener("mousemove",e=>{
+  const x=(e.clientX/innerWidth-.5)*12;
+  const y=(e.clientY/innerHeight-.5)*12;
+  glass.style.transform=`translate(${x}px,${y}px)`;
+});
+
+/* Music + Visualizer */
+const music=document.getElementById("bg-music");
+const vol=document.getElementById("volume");
+const btn=document.getElementById("enable-music");
+const vc=visualizer,ctxV=vc.getContext("2d");
+
+let audioCtx,analyser,src;
+let targetVol=localStorage.getItem("volume")||0.4;
+vol.value=targetVol;
+
+btn.onclick=async()=>{
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  analyser=audioCtx.createAnalyser();
+  analyser.fftSize=256;
+  src=audioCtx.createMediaElementSource(music);
+  src.connect(analyser);analyser.connect(audioCtx.destination);
+
+  await music.play();
+  music.volume=0;
+  let v=0;
+  const fade=setInterval(()=>{
+    v+=0.01;
+    music.volume=Math.min(v,targetVol);
+    if(v>=targetVol)clearInterval(fade);
+  },40);
+  btn.style.display="none";
 };
 
-/* ===== FORCE PLAY (MOBILE + PC) ===== */
-const enableBtn = document.getElementById("enable-music");
-enableBtn.addEventListener("click", async () => {
-  try {
-    music.muted = false;
-    await music.play();
-    enableBtn.style.display = "none";
-  } catch (e) {
-    alert("Trình duyệt chặn phát nhạc, hãy bấm lại!");
+vol.oninput=()=>{
+  targetVol=vol.value;
+  music.volume=targetVol;
+  localStorage.setItem("volume",targetVol);
+};
+
+/* iOS Safari resume */
+addEventListener("touchstart",()=>{
+  if(audioCtx && audioCtx.state!=="running") audioCtx.resume();
+},{once:true});
+
+/* Particles swirl */
+const particles=[];
+function spawnParticle(power){
+  const p=document.createElement("div");
+  p.className="particle";
+  document.body.appendChild(p);
+  particles.push({
+    el:p,
+    x:innerWidth/2,
+    y:innerHeight/2,
+    a:Math.random()*Math.PI*2,
+    r:0,
+    s:power*0.6+1
+  });
+}
+
+/* Draw */
+let lastBass=0;
+function draw(){
+requestAnimationFrame(draw);
+if(!analyser)return;
+const data=new Uint8Array(analyser.frequencyBinCount);
+analyser.getByteFrequencyData(data);
+
+ctxV.clearRect(0,0,vc.width,vc.height);
+
+let bass=0;
+data.forEach((v,i)=>{ if(i<8) bass+=v });
+bass/=8;
+
+const hue=180+bass*.4;
+ctxV.strokeStyle=`hsla(${hue},100%,70%,.9)`;
+ctxV.shadowBlur=30;
+ctxV.shadowColor=`hsla(${hue},100%,70%,1)`;
+
+ctxV.beginPath();
+data.forEach((v,i)=>{
+  const x=i*(vc.width/data.length);
+  const y=vc.height-(v/255)*vc.height;
+  i?ctxV.lineTo(x,y):ctxV.moveTo(x,y);
+});
+ctxV.stroke();
+
+/* Beat detect */
+if(bass-lastBass>35 && bass>160){
+  spawnParticle(bass/255);
+}
+lastBass=bass;
+
+/* Particles swirl */
+particles.forEach((p,i)=>{
+  p.a+=0.08;
+  p.r+=p.s;
+  p.x+=Math.cos(p.a)*p.s;
+  p.y+=Math.sin(p.a)*p.s;
+  p.el.style.left=p.x+"px";
+  p.el.style.top=p.y+"px";
+  if(p.x<0||p.x>innerWidth||p.y<0||p.y>innerHeight){
+    p.el.remove();particles.splice(i,1);
   }
 });
+}
+draw();
 </script>
 
 </body>
