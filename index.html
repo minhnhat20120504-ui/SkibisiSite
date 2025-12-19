@@ -6,38 +6,17 @@
 <title>Pham Minh Nhat</title>
 
 <style>
-:root{
-  --accent:260;
-  --bg:#050505;
-  --fg:#fff;
-}
-*{box-sizing:border-box}
+/* ===== BASE ===== */
 body{
   margin:0;
   min-height:100vh;
   font-family:monospace;
-  color:var(--fg);
-  background:var(--bg);
+  color:#fff;
+  background:#000;
   overflow:hidden;
-  transition:background .6s,color .6s;
 }
 
-/* THEME */
-.theme-toggle{
-  position:fixed;
-  top:14px;
-  left:18px;
-  z-index:100000;
-  background:rgba(0,0,0,.45);
-  backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.3);
-  padding:6px 10px;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:18px;
-}
-
-/* LANG */
+/* ===== LANGUAGE SWITCH ===== */
 .lang-switch{
   position:fixed;
   top:14px;
@@ -47,88 +26,98 @@ body{
   gap:6px;
 }
 .lang-switch button{
-  background:rgba(0,0,0,.5);
-  border:1px solid rgba(255,255,255,.4);
-  color:var(--fg);
-  font-size:14px;
+  background:rgba(0,0,0,.65);
+  border:1px solid #fff;
+  color:#fff;
+  font-size:18px;
   padding:6px 8px;
-  border-radius:6px;
   cursor:pointer;
+  border-radius:6px;
+  transition:.25s;
+}
+.lang-switch button:hover{
+  background:#fff;
+  color:#000;
 }
 
-/* BACKGROUND */
-canvas{position:fixed;inset:0;z-index:-10}
-
-/* CURSOR */
-.cursor{
+/* ===== BACKGROUND ===== */
+canvas{
   position:fixed;
-  width:14px;height:14px;
-  border-radius:50%;
-  background:hsl(var(--accent),100%,70%);
-  pointer-events:none;
-  z-index:99999;
-}
-.cursor-light{
-  position:fixed;
-  width:280px;height:280px;
-  border-radius:50%;
-  background:radial-gradient(circle,hsla(var(--accent),100%,70%,.35),transparent 60%);
-  pointer-events:none;
-  mix-blend-mode:screen;
-  z-index:3;
+  inset:0;
+  z-index:-2;
 }
 
-/* CENTER */
+.particle{
+  position:fixed;
+  width:2px;
+  height:2px;
+  background:rgba(255,255,255,.6);
+  animation:floatUp linear infinite;
+  z-index:-1;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+
+/* ===== CENTER ===== */
 .center-wrapper{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:60px 20px;
 }
 .center-content{
-  background:rgba(30,30,30,.55);
-  backdrop-filter:blur(42px) saturate(240%);
-  padding:48px 56px;
-  border-radius:28px;
-  border:1px solid rgba(255,255,255,.25);
-  box-shadow:0 60px 160px hsla(var(--accent),80%,50%,.35);
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  padding:32px 36px;
+  border-radius:18px;
   text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  max-width:920px;
+  max-width:900px;
+  box-shadow:0 0 40px rgba(0,0,0,.6);
 }
+
 .logo{
   max-width:180px;
-  margin-bottom:10px;
-  border-radius:16px;
-  filter:drop-shadow(0 0 22px hsla(var(--accent),100%,70%,.65));
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.6));
 }
-.center-content a{margin:6px 4px}
 
-/* MUSIC */
+/* ===== TEXT ANIMATION ===== */
+.text-anim{
+  animation:textSwap .45s cubic-bezier(.22,1,.36,1);
+}
+@keyframes textSwap{
+  0%{opacity:0;transform:translateY(8px);filter:blur(4px)}
+  100%{opacity:1;transform:none;filter:none}
+}
+
+/* ===== MUSIC ===== */
 .music-control{
   position:fixed;
   bottom:18px;
   left:18px;
-  z-index:9999;
-  background:rgba(0,0,0,.5);
-  backdrop-filter:blur(16px);
+  z-index:99999;
+  background:rgba(0,0,0,.65);
   padding:10px 14px;
-  border-radius:14px;
+  border-radius:12px;
+  display:flex;
+  gap:10px;
 }
+.music-control input{width:90px}
+
+/* ===== ENABLE MUSIC BTN ===== */
 #enable-music{
   position:fixed;
   bottom:18px;
   right:18px;
-  z-index:9999;
-  background:rgba(0,0,0,.6);
-  border:1px solid rgba(255,255,255,.3);
-  color:white;
+  z-index:99999;
+  background:rgba(0,0,0,.75);
+  color:#fff;
+  border:1px solid #fff;
   padding:8px 14px;
-  border-radius:12px;
+  border-radius:10px;
   cursor:pointer;
 }
 </style>
@@ -136,21 +125,16 @@ canvas{position:fixed;inset:0;z-index:-10}
 
 <body>
 
-<div class="theme-toggle" id="themeToggle">🌙</div>
-
+<!-- LANG -->
 <div class="lang-switch">
-  <button data-lang="vi">VN</button>
-  <button data-lang="en">US</button>
-  <button data-lang="ja">JP</button>
-  <button data-lang="ko">KR</button>
-  <button data-lang="zh">CN</button>
+  <button data-lang="vi">🇻🇳</button>
+  <button data-lang="en">🇺🇸</button>
+  <button data-lang="ja">🇯🇵</button>
+  <button data-lang="ko">🇰🇷</button>
+  <button data-lang="zh">🇨🇳</button>
 </div>
 
-<canvas id="bg"></canvas>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-light" id="cursorLight"></div>
-
+<!-- MUSIC -->
 <audio id="bg-music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -158,6 +142,10 @@ canvas{position:fixed;inset:0;z-index:-10}
 <div class="music-control">
   🔊 <input type="range" id="volume" min="0" max="1" step="0.01">
 </div>
+
+<button id="enable-music">▶ Bật nhạc</button>
+
+<canvas id="matrix"></canvas>
 
 <div class="center-wrapper">
 <div class="center-content" id="content">
@@ -180,7 +168,7 @@ canvas{position:fixed;inset:0;z-index:-10}
  data-zh="Pham Minh Nhat._.">
 </h1>
 
-<hr style="width:100%;opacity:.6">
+<hr>
 
 <h3
  data-vi="🔗 Kết nối với tôi"
@@ -190,121 +178,89 @@ canvas{position:fixed;inset:0;z-index:-10}
  data-zh="🔗 联系我">
 </h3>
 
-<div>
-  <a href="https://www.youtube.com/@MinhhNhatt-0504">
-    <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-  </a>
-  <a href="https://pmn.onrender.com/">
-    <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
-  </a>
-  <a href="https://discord.gg/P9yeTvwKjB">
-    <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-  </a>
-  <a href="https://guns.lol/phamminhnhat__">
-    <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
-  </a>
-</div>
+<a href="https://www.youtube.com/@MinhhNhatt-0504">
+  <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
+</a>
+
+<a href="https://pmn.onrender.com/">
+  <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
+</a>
+
+<a href="https://discord.gg/P9yeTvwKjB">
+  <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
+</a>
 
 </div>
 </div>
-
-<button id="enable-music">▶ Bật nhạc</button>
 
 <script>
-/* THEME */
-const root=document.documentElement;
-const toggle=document.getElementById("themeToggle");
-let userTheme=localStorage.getItem("theme");
-
-function applyTheme(t){
-  if(t==="light"){
-    root.style.setProperty("--bg","#eef1f5");
-    root.style.setProperty("--fg","#111");
-    root.style.setProperty("--accent",200);
-    toggle.textContent="☀️";
-  }else{
-    root.style.setProperty("--bg","#050505");
-    root.style.setProperty("--fg","#fff");
-    root.style.setProperty("--accent",260);
-    toggle.textContent="🌙";
-  }
-}
-if(userTheme){
-  applyTheme(userTheme);
-}else{
-  const h=new Date().getHours();
-  applyTheme(h>=6&&h<18?"light":"dark");
-}
-toggle.onclick=()=>{
-  userTheme=(root.style.getPropertyValue("--bg")==="#050505")?"light":"dark";
-  localStorage.setItem("theme",userTheme);
-  applyTheme(userTheme);
-};
-
-/* LANGUAGE */
-const content=document.getElementById("content");
-function updateLang(l){
-  content.querySelectorAll("[data-"+l+"]").forEach(e=>{
-    e.textContent=e.getAttribute("data-"+l);
+/* ===== MATRIX ===== */
+const c=document.getElementById("matrix"),x=c.getContext("2d");
+function r(){c.width=innerWidth;c.height=innerHeight}
+r();addEventListener("resize",r);
+const chars="01#$@%&",fs=14,cols=Math.floor(c.width/fs),drops=Array(cols).fill(1);
+setInterval(()=>{
+  x.fillStyle="rgba(0,0,0,.15)";
+  x.fillRect(0,0,c.width,c.height);
+  x.fillStyle="#fff";
+  x.font=fs+"px monospace";
+  drops.forEach((y,i)=>{
+    x.fillText(chars[Math.random()*chars.length|0],i*fs,y*fs);
+    drops[i]=y*fs>c.height&&Math.random()>.98?0:y+1;
   });
-  localStorage.setItem("lang",l);
+},50);
+
+/* ===== PARTICLES ===== */
+for(let i=0;i<50;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=6+Math.random()*10+"s";
+  document.body.appendChild(p);
 }
-updateLang(localStorage.getItem("lang")||"vi");
+
+/* ===== LANGUAGE ===== */
+const supported=["vi","en","ja","ko","zh"];
+const content=document.getElementById("content");
+
+function detectLang(){
+  const n=navigator.language.toLowerCase();
+  if(n.startsWith("vi"))return"vi";
+  if(n.startsWith("ja"))return"ja";
+  if(n.startsWith("ko"))return"ko";
+  if(n.startsWith("zh"))return"zh";
+  return"en";
+}
+
+function animateText(el,text){
+  el.classList.remove("text-anim");
+  void el.offsetWidth;
+  el.textContent=text;
+  el.classList.add("text-anim");
+}
+
+function updateLang(lang){
+  if(!supported.includes(lang))lang="en";
+  content.querySelectorAll("[data-en]").forEach(el=>{
+    animateText(el,el.getAttribute("data-"+lang)||el.getAttribute("data-en"));
+  });
+  localStorage.setItem("lang",lang);
+}
+
+updateLang(localStorage.getItem("lang")||detectLang());
 document.querySelectorAll(".lang-switch button").forEach(b=>{
   b.onclick=()=>updateLang(b.dataset.lang);
 });
 
-/* CURSOR */
-const cur=document.getElementById("cursor");
-const light=document.getElementById("cursorLight");
-let x=innerWidth/2,y=innerHeight/2,tx=x,ty=y,vx=0,vy=0;
-addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY});
-(function anim(){
-  vx+=(tx-x)*0.08;vy+=(ty-y)*0.08;
-  vx*=0.7;vy*=0.7;x+=vx;y+=vy;
-  cur.style.left=x+"px";cur.style.top=y+"px";
-  light.style.left=x+"px";light.style.top=y+"px";
-  requestAnimationFrame(anim);
-})();
-
-/* MUSIC + BEAT */
+/* ===== MUSIC ===== */
 const music=document.getElementById("bg-music");
 const vol=document.getElementById("volume");
-const btn=document.getElementById("enable-music");
-vol.value=localStorage.getItem("volume")||0.4;
+vol.value=localStorage.getItem("vol")||0.4;
+music.volume=vol.value;
+vol.oninput=()=>{music.volume=vol.value;localStorage.setItem("vol",vol.value)};
 
-btn.onclick=async()=>{
-  const ctx=new (AudioContext||webkitAudioContext)();
-  const src=ctx.createMediaElementSource(music);
-  const analyser=ctx.createAnalyser();
-  src.connect(analyser);
-  analyser.connect(ctx.destination);
-  analyser.fftSize=64;
-  const data=new Uint8Array(analyser.frequencyBinCount);
-
-  music.volume=0;
-  await music.play();
-  btn.style.display="none";
-
-  let v=0,t=vol.value;
-  const fade=setInterval(()=>{
-    v+=.01;
-    music.volume=Math.min(v,t);
-    if(v>=t)clearInterval(fade);
-  },40);
-
-  (function beat(){
-    analyser.getByteFrequencyData(data);
-    let avg=data.reduce((a,b)=>a+b)/data.length;
-    if(root.style.getPropertyValue("--bg")==="#050505"){
-      root.style.setProperty("--accent",260+avg/8);
-    }
-    requestAnimationFrame(beat);
-  })();
-};
-vol.oninput=()=>{
-  music.volume=vol.value;
-  localStorage.setItem("volume",vol.value);
+document.getElementById("enable-music").onclick=async()=>{
+  try{await music.play();this.style.display="none"}catch{}
 };
 </script>
 
