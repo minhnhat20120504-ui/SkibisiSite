@@ -135,76 +135,75 @@ canvas{position:fixed;inset:0;z-index:-10}
 </head>
 
 <body>
-<!-- ================= HARDCORE PROTECT LAYER ================= -->
 <script>
+/* ================= ABSOLUTE MODE ================= */
 (function(){
-  /* ===== BASIC BLOCK ===== */
-  document.addEventListener("contextmenu",e=>e.preventDefault());
-  document.addEventListener("dragstart",e=>e.preventDefault());
-  document.addEventListener("selectstart",e=>e.preventDefault());
+  "use strict";
 
-  document.addEventListener("keydown",e=>{
-    if(
-      e.key==="F12" ||
-      (e.ctrlKey&&e.shiftKey&&["I","J","C","K"].includes(e.key)) ||
-      (e.ctrlKey&&["U","S"].includes(e.key))
-    ){
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
+  /* ===== BASIC BLOCK ===== */
+  const stop = e => { e.preventDefault(); e.stopPropagation(); return false; };
+  ["contextmenu","selectstart","dragstart","copy","cut"].forEach(ev=>{
+    document.addEventListener(ev, stop, {capture:true});
   });
 
-  /* ===== DEVTOOLS SIZE DETECT ===== */
-  let tripped=false;
+  document.addEventListener("keydown", e=>{
+    const k=e.key.toUpperCase();
+    if(
+      k==="F12" ||
+      (e.ctrlKey && e.shiftKey && ["I","J","C","K"].includes(k)) ||
+      (e.ctrlKey && ["U","S","A"].includes(k))
+    ) stop(e);
+  }, {capture:true});
+
+  /* ===== DEVTOOLS DETECT (SIZE) ===== */
+  let killed=false;
   function kill(){
-    if(tripped) return;
-    tripped=true;
+    if(killed) return; killed=true;
     document.body.innerHTML =
-      "<style>body{background:#000;color:#f55;font-family:monospace;display:flex;align-items:center;justify-content:center;height:100vh}</style>"+
+      "<style>body{margin:0;background:#000;color:#f55;font-family:monospace;display:flex;align-items:center;justify-content:center;height:100vh}</style>"+
       "<h1>⚠ ACCESS DENIED ⚠</h1>";
-    setTimeout(()=>location.reload(),1200);
-    while(true){}
+    setTimeout(()=>location.reload(),900);
+    for(;;){}
   }
   setInterval(()=>{
-    const w = window.outerWidth - window.innerWidth > 160;
-    const h = window.outerHeight - window.innerHeight > 160;
-    if(w || h) kill();
-  },600);
+    if (Math.abs(window.outerWidth - window.innerWidth) > 160 ||
+        Math.abs(window.outerHeight - window.innerHeight) > 160) kill();
+  }, 500);
 
   /* ===== DEBUGGER TRAP ===== */
-  setInterval(()=>{
-    debugger;
-  },800);
+  setInterval(()=>{ debugger; }, 700);
 
   /* ===== CONSOLE TRAP ===== */
-  const element = new Image();
-  Object.defineProperty(element,"id",{
-    get(){ kill(); }
-  });
-  console.log(element);
+  const bait = new Image();
+  Object.defineProperty(bait,"id",{get(){ kill(); }});
+  console.log(bait);
 
-  /* ===== DEVTOOLS OPEN BY FUNCTION TO STRING ===== */
-  const toString = Function.prototype.toString;
+  /* ===== SOURCE OBFUSCATE ===== */
+  const _toString = Function.prototype.toString;
   Function.prototype.toString = function(){
-    if(this === Function.prototype.toString) kill();
-    return toString.apply(this, arguments);
+    if(this === Function.prototype.toString) return _toString.call(this);
+    return "/* [native code] */";
   };
 
-  /* ===== FAKE CONSOLE ===== */
-  console.log = function(){
-    kill();
-  };
+  /* ===== VIEW-SOURCE KILL (delay) ===== */
+  setTimeout(()=>{
+    try{
+      const html=document.documentElement.innerHTML;
+      if(/<script/i.test(html) && location.protocol==="view-source:") kill();
+    }catch(e){}
+  }, 300);
 
-  /* ===== SOURCE VIEW BLOCK ===== */
-  if(location.href.startsWith("view-source:")){
-    document.documentElement.innerHTML="";
-    location.replace("about:blank");
-  }
+  /* ===== MOBILE DEVTOOLS ===== */
+  let t=0;
+  document.addEventListener("touchstart",()=>t=Date.now(),{passive:true});
+  document.addEventListener("touchend",()=>{
+    if(Date.now()-t>650) kill();
+  });
 
 })();
+ /* ================= END ABSOLUTE MODE ================= */
 </script>
-<!-- ================= END HARDCORE PROTECT ================= -->
+
 
 <div class="theme-toggle" id="themeToggle">🌙</div>
 
