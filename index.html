@@ -57,7 +57,11 @@ body{
 }
 
 /* ===== BACKGROUND ===== */
-canvas{position:fixed;inset:0;z-index:-10}
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+}
 
 /* ===== CURSOR ===== */
 .cursor{
@@ -78,26 +82,40 @@ canvas{position:fixed;inset:0;z-index:-10}
   z-index:3;
 }
 
-/* ===== CENTER ===== */
+/* ===== CENTER FIXED ===== */
 .center-wrapper{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:60px 20px; /* 🔥 FIX MẤT CỮ */
 }
+
 .center-content{
   background:rgba(30,30,30,.55);
   backdrop-filter:blur(42px) saturate(240%);
-  padding:42px;
+  padding:48px 56px;           /* 🔥 GIÃN NỘI DUNG */
   border-radius:28px;
   border:1px solid rgba(255,255,255,.25);
   box-shadow:0 60px 160px hsla(var(--accent),80%,50%,.35);
   text-align:center;
-  transition:transform .15s,box-shadow .3s;
+
+  display:flex;                /* 🔥 FIX CHÍNH */
+  flex-direction:column;
+  align-items:center;
+  gap:18px;                    /* 🔥 CỨU LAYOUT */
+  max-width:920px;
 }
+
 .logo{
   max-width:180px;
-  filter:drop-shadow(0 0 18px hsla(var(--accent),100%,70%,.6));
+  margin-bottom:10px;
+  border-radius:16px;
+  filter:drop-shadow(0 0 22px hsla(var(--accent),100%,70%,.65));
+}
+
+.center-content a{
+  margin:6px 4px;              /* badge không dính */
 }
 
 /* ===== MUSIC ===== */
@@ -157,28 +175,33 @@ canvas{position:fixed;inset:0;z-index:-10}
 <img class="logo" src="https://media.tenor.com/CFowpSoO7VsAAAAM/adad.gif">
 
 <p data-vi="Tham Gia Ngay Sivi Discord để được hỗ trợ!!"
-   data-en="Join Sivi Discord to get support!!"></p>
+   data-en="Join Sivi Discord to get support!!">
+</p>
 
 <h1 data-vi="Pham Minh Nhat._."
-    data-en="Pham Minh Nhat._."></h1>
+    data-en="Pham Minh Nhat._.">
+</h1>
 
-<hr>
+<hr style="width:100%;opacity:.6">
 
 <h3 data-vi="🔗 Kết nối với tôi"
-    data-en="🔗 Connect With Me"></h3>
+    data-en="🔗 Connect With Me">
+</h3>
 
-<a href="https://www.youtube.com/@MinhhNhatt-0504">
-  <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-</a>
-<a href="https://pmn.onrender.com/">
-  <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
-</a>
-<a href="https://discord.gg/P9yeTvwKjB">
-  <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-</a>
-<a href="https://guns.lol/phamminhnhat__">
-  <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
-</a>
+<div>
+  <a href="https://www.youtube.com/@MinhhNhatt-0504">
+    <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
+  </a>
+  <a href="https://pmn.onrender.com/">
+    <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
+  </a>
+  <a href="https://discord.gg/P9yeTvwKjB">
+    <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
+  </a>
+  <a href="https://guns.lol/phamminhnhat__">
+    <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
+  </a>
+</div>
 
 </div>
 </div>
@@ -186,7 +209,7 @@ canvas{position:fixed;inset:0;z-index:-10}
 <button id="enable-music">▶ Bật nhạc</button>
 
 <script>
-/* ===== THEME LOGIC ===== */
+/* ===== THEME ===== */
 const root=document.documentElement;
 const toggle=document.getElementById("themeToggle");
 let userTheme=localStorage.getItem("theme");
@@ -210,12 +233,24 @@ if(userTheme){
   const h=new Date().getHours();
   applyTheme(h>=6&&h<18?"light":"dark");
 }
-
 toggle.onclick=()=>{
-  userTheme = (root.style.getPropertyValue("--bg")==="#050505")?"light":"dark";
+  userTheme=(root.style.getPropertyValue("--bg")==="#050505")?"light":"dark";
   localStorage.setItem("theme",userTheme);
   applyTheme(userTheme);
 };
+
+/* ===== LANG ===== */
+const content=document.getElementById("content");
+function updateLang(l){
+  content.querySelectorAll("[data-"+l+"]").forEach(e=>{
+    e.textContent=e.getAttribute("data-"+l);
+  });
+  localStorage.setItem("lang",l);
+}
+updateLang(localStorage.getItem("lang")||"vi");
+document.querySelectorAll(".lang-switch button").forEach(b=>{
+  b.onclick=()=>updateLang(b.dataset.lang);
+});
 
 /* ===== CURSOR ===== */
 const cur=document.getElementById("cursor");
@@ -230,7 +265,7 @@ addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY});
   requestAnimationFrame(anim);
 })();
 
-/* ===== MUSIC + BEAT ACCENT ===== */
+/* ===== MUSIC + BEAT ===== */
 const music=document.getElementById("bg-music");
 const vol=document.getElementById("volume");
 const btn=document.getElementById("enable-music");
@@ -240,14 +275,21 @@ btn.onclick=async()=>{
   const ctx=new (AudioContext||webkitAudioContext)();
   const src=ctx.createMediaElementSource(music);
   const analyser=ctx.createAnalyser();
-  src.connect(analyser);analyser.connect(ctx.destination);
+  src.connect(analyser);
+  analyser.connect(ctx.destination);
   analyser.fftSize=64;
   const data=new Uint8Array(analyser.frequencyBinCount);
+
   music.volume=0;
   await music.play();
   btn.style.display="none";
+
   let v=0,t=vol.value;
-  setInterval(()=>{if(v<t){v+=.01;music.volume=v}},40);
+  const fade=setInterval(()=>{
+    v+=.01;
+    music.volume=Math.min(v,t);
+    if(v>=t)clearInterval(fade);
+  },40);
 
   (function beat(){
     analyser.getByteFrequencyData(data);
