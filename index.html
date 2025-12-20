@@ -131,6 +131,18 @@ canvas{position:fixed;inset:0;z-index:-10}
   border-radius:12px;
   cursor:pointer;
 }
+  .visitor-counter{
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+  color: #ccc;
+  font-family: monospace;
+  justify-content: center;
+}
+
 </style>
 </head>
 
@@ -375,6 +387,23 @@ vol.oninput=()=>{
   music.volume=vol.value;
   localStorage.setItem("volume",vol.value);
 };
+</script>
+<script>
+(function(){
+  const KEY = "pmn_total_visits";
+  const SESSION_KEY = "pmn_visited";
+
+  let total = localStorage.getItem(KEY);
+  if(!total) total = 0;
+
+  if(!sessionStorage.getItem(SESSION_KEY)){
+    total++;
+    localStorage.setItem(KEY, total);
+    sessionStorage.setItem(SESSION_KEY, "1");
+  }
+
+  document.getElementById("visitorCount").textContent = total;
+})();
 </script>
 
 </body>
