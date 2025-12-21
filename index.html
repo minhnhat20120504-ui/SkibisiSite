@@ -142,11 +142,31 @@ canvas{position:fixed;inset:0;z-index:-10}
   font-family: monospace;
   justify-content: center;
 }
+.top-time{
+  position:fixed;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:99999;
+  padding:6px 14px;
+  border-radius:12px;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.3);
+  font-family:monospace;
+  font-size:14px;
+  color:var(--fg);
+  letter-spacing:1px;
+  opacity:.9;
+}
 
 </style>
 </head>
 
 <body>
+ 
+  <div class="top-time" id="topTime">00:00:00</div>
+
 <script>
 /* ================= ABSOLUTE MODE ================= */
 (function(){
@@ -286,9 +306,6 @@ canvas{position:fixed;inset:0;z-index:-10}
     <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
   </a>
 </div>
-<div class="visitor-counter">
-    👁 <span id="visitorCount">0</span>
-  </div>
 </div>
 </div>
   
@@ -407,6 +424,20 @@ vol.oninput=()=>{
   }
 
   document.getElementById("visitorCount").textContent = total;
+})();
+</script>
+<script>
+(function clock(){
+  const el=document.getElementById("topTime");
+  function update(){
+    const d=new Date();
+    const h=String(d.getHours()).padStart(2,"0");
+    const m=String(d.getMinutes()).padStart(2,"0");
+    const s=String(d.getSeconds()).padStart(2,"0");
+    el.textContent=`${h}:${m}:${s}`;
+  }
+  update();
+  setInterval(update,1000);
 })();
 </script>
 
