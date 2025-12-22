@@ -87,12 +87,12 @@ canvas{position:fixed;inset:0;z-index:-10}
   padding:60px 20px;
 }
 .center-content{
-  background:rgba(30,30,30,.55);
-  backdrop-filter:blur(42px) saturate(240%);
+  background:transparent;
+  backdrop-filter:none;
   padding:48px 56px;
   border-radius:28px;
   border:1px solid rgba(255,255,255,.25);
-  box-shadow:0 60px 160px hsla(var(--accent),80%,50%,.35);
+  box-shadow:none;
   text-align:center;
   display:flex;
   flex-direction:column;
@@ -100,6 +100,7 @@ canvas{position:fixed;inset:0;z-index:-10}
   gap:18px;
   max-width:920px;
 }
+
 .logo{
   max-width:180px;
   margin-bottom:10px;
@@ -183,6 +184,13 @@ canvas{position:fixed;inset:0;z-index:-10}
 </head>
 
 <body>
+  <div id="enterGate">
+  <div class="enter-box">
+    <h1>CLICK TO ENTER</h1>
+    <p>Enable sound & effects</p>
+  </div>
+</div>
+
  <video class="bg-media" autoplay muted loop playsinline>
   <source src="bg.mp4" type="video/mp4">
 </video>
