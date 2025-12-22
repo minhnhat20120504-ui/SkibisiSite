@@ -159,12 +159,35 @@ canvas{position:fixed;inset:0;z-index:-10}
   letter-spacing:1px;
   opacity:.9;
 }
+/* VIDEO / GIF BACKGROUND LAYER */
+.bg-media{
+  position:fixed;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  z-index:-5;               /* trên canvas (-10) */
+  pointer-events:none;
+  filter:brightness(.35) blur(1px);
+}
+
+/* GIF MODE */
+.bg-media.gif{
+  background:url("bg.gif") center/cover no-repeat;
+}
+@media (max-width:768px){
+  .bg-media{ display:none }
+}
 
 </style>
 </head>
 
 <body>
- 
+ <video class="bg-media" autoplay muted loop playsinline>
+  <source src="bg.mp4" type="video/mp4">
+</video>
+<div class="bg-media gif"></div>
+
   <div class="top-time" id="topTime">00:00:00</div>
 
 <script>
