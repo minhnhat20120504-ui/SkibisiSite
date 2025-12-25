@@ -22,15 +22,6 @@ body{
 }
 
 /* ENTER GATE */
-  #enterGate{
-  transition:opacity .6s ease, transform .6s ease;
-}
-#enterGate.hide{
-  opacity:0;
-  transform:scale(1.05);
-  pointer-events:none;
-}
-
 #enterGate{
   position:fixed;
   inset:0;
@@ -40,18 +31,15 @@ body{
   justify-content:center;
   z-index:999999;
   cursor:pointer;
+  transition:opacity .6s ease, transform .6s ease;
 }
-#enterGate h1{
-  font-size:20px;
-  opacity:.85;
+#enterGate.hide{
+  opacity:0;
+  transform:scale(1.05);
+  pointer-events:none;
 }
-#enterGate p{
-  font-size:13px;
-  opacity:.6;
-}
-  
-/* BACKGROUND */
-canvas{position:fixed;inset:0;z-index:-20}
+#enterGate h1{font-size:20px;opacity:.85}
+#enterGate p{font-size:13px;opacity:.6}
 
 /* VIDEO BACKGROUND */
 .bg-media{
@@ -60,12 +48,19 @@ canvas{position:fixed;inset:0;z-index:-20}
   width:100vw;
   height:100vh;
   object-fit:cover;
-  z-index:-10;
-  filter:brightness(.35);
+  z-index:-20;
+  filter:brightness(.75);
   pointer-events:none;
 }
 @media(max-width:768px){
   .bg-media{display:none}
+}
+
+/* CANVAS EFFECT */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-10;
 }
 
 /* CENTER */
@@ -76,7 +71,6 @@ canvas{position:fixed;inset:0;z-index:-20}
   align-items:center;
 }
 .center-content{
-  background:transparent;
   padding:48px 56px;
   text-align:center;
   display:flex;
@@ -107,18 +101,6 @@ canvas{position:fixed;inset:0;z-index:-20}
   padding:10px 14px;
   border-radius:14px;
 }
-#enable-music{
-  position:fixed;
-  bottom:18px;
-  right:18px;
-  z-index:9999;
-  background:rgba(0,0,0,.6);
-  border:1px solid rgba(255,255,255,.3);
-  color:white;
-  padding:8px 14px;
-  border-radius:12px;
-  cursor:pointer;
-}
 
 /* CLOCK */
 .top-time{
@@ -139,6 +121,7 @@ canvas{position:fixed;inset:0;z-index:-20}
 
 <body>
 
+<!-- ENTER -->
 <div id="enterGate">
   <div>
     <h1>click to enter...</h1>
@@ -146,69 +129,69 @@ canvas{position:fixed;inset:0;z-index:-20}
   </div>
 </div>
 
+<!-- VIDEO -->
 <video class="bg-media" autoplay muted loop playsinline>
   <source src="bg.mp4" type="video/mp4">
 </video>
 
+<!-- CLOCK -->
 <div class="top-time" id="topTime">00:00:00</div>
-  
+
+<!-- CANVAS -->
 <canvas id="bg"></canvas>
 
+<!-- MUSIC -->
 <audio id="bg-music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="music-control">
-  🔊 <input type="range" id="volume" min="0" max="1" step="0.01">
+  🔊 <input type="range" id="volume" min="0" max="1" step="0.01" value="0.6">
 </div>
 
+<!-- CENTER -->
 <div class="center-wrapper">
-  <div class="center-content" id="content">
-    <img class="logo" src="adad.gif">
+  <div class="center-content">
 
-   <p
-     </p>
-      Tham Gia Ngay Sivi Discord để được hỗ trợ!!
-</p>
+    <img class="logo" src="adad.gif" alt="logo">
 
-<h1
- </h1>
-  Pham Minh Nhat._.
-</h1>
+    <p>Tham Gia Ngay Sivi Discord để được hỗ trợ!!</p>
 
-<hr style="width:100%;opacity:.6">
+    <h1>Pham Minh Nhat._.</h1>
 
-<h3
-  </h3>
-    🔗 Kết nối với tôi
-</h3>
+    <hr style="width:100%;opacity:.6">
 
-<a href="https://www.youtube.com/@MinhhNhatt-0504">
-  <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-</a>
+    <h3>🔗 Kết nối với tôi</h3>
 
-<a href="https://pmn.onrender.com/">
-  <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
-</a>
+    <a href="https://www.youtube.com/@MinhhNhatt-0504">
+      <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
+    </a>
 
-<a href="https://discord.gg/P9yeTvwKjB">
-  <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-</a>
+    <a href="https://pmn.onrender.com/">
+      <img src="https://img.shields.io/badge/Website-pmn.onrender.com-blue?logo=google-chrome">
+    </a>
 
-<a href="https://guns.lol/phamminhnhat__">
-  <img src="https://img.shields.io/badge/My%20ProFile-pink?logo=google%20chrome">
-</a>
+    <a href="https://discord.gg/P9yeTvwKjB">
+      <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
+    </a>
 
+    <a href="https://guns.lol/phamminhnhat__">
+      <img src="https://img.shields.io/badge/My%20Profile-pink?logo=google-chrome">
+    </a>
+
+  </div>
 </div>
-</div>
-
-
 
 <script>
 const music=document.getElementById("bg-music");
+const vol=document.getElementById("volume");
+vol.oninput=()=>music.volume=vol.value;
+
 document.getElementById("enterGate").onclick=()=>{
-  document.getElementById("enterGate").style.display="none";
+  document.getElementById("enterGate").classList.add("hide");
+  music.volume=vol.value;
   music.play();
+  setTimeout(()=>document.getElementById("enterGate").remove(),600);
 };
 </script>
 
