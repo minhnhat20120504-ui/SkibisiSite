@@ -156,11 +156,40 @@ canvas{
   border-top:1px solid rgba(255,255,255,.25);
   margin:14px 0;
 }
+  /* ===== RGB BORDER FULL WEB ===== */
+.rgb-border{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999999;
+
+  border:3px solid transparent;
+  border-radius:0;
+
+  background:
+    linear-gradient(90deg,
+      red, orange, yellow, lime, cyan, blue, violet, red
+    ) border-box;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  animation: rgbMove 6s linear infinite;
+}
+
+@keyframes rgbMove{
+  from{ background-position:0% 50%; }
+  to{ background-position:200% 50%; }
+}
+
 </style>
 </head>
 
 <body>
-
+<div class="rgb-border"></div>
 <!-- ENTER -->
 <div id="enterGate">
   <div>
