@@ -11,7 +11,7 @@ Hosted with CloudFlare.com
 ## Files
 - index.html : main website <br>
 - music.mp3  : background music <br>
--" ".png     : Avt <br>
+- tth.png     : Avt <br>
 -bg.mp4      : Website's Background <br>
 ## Tech
 - Pure HTML / CSS / JavaScript
