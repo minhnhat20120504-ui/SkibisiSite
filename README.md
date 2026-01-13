@@ -9,10 +9,10 @@ Static personal website by Pham Minh Nhat
 Hosted with CloudFlare.com
 
 ## Files
-- index.html : main website
-- music.mp3  : background music
--" ".png     : Avt
--bg.mp4      : Website's Background
+- index.html : main website <br>
+- music.mp3  : background music <br>
+-" ".png     : Avt <br>
+-bg.mp4      : Website's Background <br>
 ## Tech
 - Pure HTML / CSS / JavaScript
 - No framework
