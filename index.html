@@ -156,7 +156,7 @@ canvas{
   border-top:1px solid rgba(255,255,255,.25);
   margin:14px 0;
 }
- /* ===== RGB BORDER ANIMATED ===== */
+ /* ===== RGB BORDER COLOR FLOW ===== */
 .rgb-border{
   position:fixed;
   inset:0;
@@ -166,8 +166,8 @@ canvas{
   border:3px solid transparent;
 
   background:
-    conic-gradient(
-      from 0deg,
+    linear-gradient(
+      90deg,
       red,
       orange,
       yellow,
@@ -178,23 +178,21 @@ canvas{
       red
     ) border-box;
 
+  background-size:400% 100%;
+
   -webkit-mask:
     linear-gradient(#000 0 0) padding-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 
-  animation: rgbSpin 9s linear infinite;
+  animation: rgbFlow 6s linear infinite;
 }
 
-/* XOAY MÀU */
-@keyframes rgbSpin{
-  from{
-    transform:rotate(0deg);
-  }
-  to{
-    transform:rotate(360deg);
-  }
+/* MÀU CHẠY DỌC VIỀN */
+@keyframes rgbFlow{
+  0%   { background-position:0% 50%; }
+  100% { background-position:400% 50%; }
 }
 
 </style>
