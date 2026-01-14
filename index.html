@@ -364,7 +364,7 @@ document.getElementById("enterGate").onclick = () => {
 </script>
 <script>
 function loadDiscord(){
-  fetch("https://YOUR-SERVER/discord-status")
+  fetch("https://discordstatus-1t6f.onrender.com")
   .then(r => r.json())
   .then(d => {
     document.getElementById("dc-avatar").src = d.avatar;
