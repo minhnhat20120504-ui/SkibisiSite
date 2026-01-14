@@ -38,8 +38,6 @@ body{
   transform:scale(1.05);
   pointer-events:none;
 }
-#enterGate h1{font-size:20px;opacity:.85}
-#enterGate p{font-size:13px;opacity:.6}
 
 /* VIDEO BACKGROUND */
 .bg-media{
@@ -51,40 +49,6 @@ body{
   z-index:-20;
   filter:brightness(.75);
   pointer-events:none;
-}
-
-/* CANVAS EFFECT */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-}
-
-/* CENTER */
-.center-wrapper{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.center-content{
-  padding:48px 56px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:18px;
-  max-width:920px;
-}
-.center-content *{
-  text-shadow:0 8px 30px rgba(0,0,0,.8);
-}
-
-/* LOGO */
-.logo{
-  max-width:180px;
-  border-radius:16px;
-  filter:drop-shadow(0 0 22px hsla(var(--accent),100%,70%,.65));
 }
 
 /* CLOCK */
@@ -101,112 +65,33 @@ canvas{
   border:1px solid rgba(255,255,255,.3);
   font-size:14px;
 }
-  /* CARD CHÍNH */
-.profile-card{
-  background:rgba(20,20,20,.45); /* xám đen nhẹ */
-  color:#fff;
 
+/* CARD */
+.profile-card{
+  background:rgba(20,20,20,.45);
   padding:36px 42px;
   border-radius:24px;
-  text-align:center;
-
   max-width:520px;
   width:90%;
-
   backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-
   border:1px solid rgba(255,255,255,.18);
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.55),
-    inset 0 0 0 1px rgba(255,255,255,.04);
-
+  box-shadow:0 25px 60px rgba(0,0,0,.55);
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:14px;
 }
 
-/* avatar */
-.profile-card .logo{
-  width:130px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-}
-
-/* tên */
-.profile-card h1{
-  margin:8px 0;
-  font-size:26px;
-  font-weight:700;
-}
-
-/* mô tả */
-.profile-card p{
-  margin:4px 0;
-  font-size:14px;
-  opacity:.8;
-}
-
-/* gạch ngang */
-.profile-card hr{
-  width:100%;
-  border:none;
-  border-top:1px solid rgba(255,255,255,.25);
-  margin:14px 0;
-}
- /* ===== RGB BORDER COLOR FLOW ===== */
-.rgb-border{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:9999999;
-
-  border:3px solid transparent;
-
-  background:
-    linear-gradient(
-      90deg,
-      red,
-      orange,
-      yellow,
-      lime,
-      cyan,
-      blue,
-      violet,
-      red
-    ) border-box;
-
-  background-size:400% 100%;
-
-  -webkit-mask:
-    linear-gradient(#000 0 0) padding-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  animation: rgbFlow 9s linear infinite;
-}
-
-/* MÀU CHẠY DỌC VIỀN */
-@keyframes rgbFlow{
-  0%   { background-position:0% 50%; }
-  100% { background-position:400% 50%; }
-}
-/* ===== DISCORD CARD (guns.lol style) ===== */
+/* DISCORD CARD */
 .discord-card{
   display:flex;
   align-items:center;
   gap:14px;
-
   padding:14px 18px;
   width:300px;
-
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(14px);
   border-radius:18px;
-
   border:1px solid rgba(255,255,255,.2);
 }
 
@@ -215,13 +100,11 @@ canvas{
   width:54px;
   height:54px;
 }
-
 .avatar-wrapper img{
   width:100%;
   height:100%;
   border-radius:50%;
 }
-
 #dc-status{
   position:absolute;
   bottom:2px;
@@ -232,34 +115,18 @@ canvas{
   border:3px solid #111;
 }
 
-.discord-info{
-  display:flex;
-  flex-direction:column;
-}
-
 .dc-name{
-  font-weight:600;
   display:flex;
-  align-items:center;
   gap:6px;
+  font-weight:600;
 }
-
-.dc-badge{
-  color:#a970ff;
-  font-size:14px;
-}
-
-.dc-activity{
-  font-size:13px;
-  opacity:.7;
-}
-
+.dc-badge{color:#a970ff}
+.dc-activity{font-size:13px;opacity:.7}
 </style>
 </head>
 
 <body>
-<div class="rgb-border"></div>
-<!-- ENTER -->
+
 <div id="enterGate">
   <div>
     <h1>click to enter...</h1>
@@ -267,123 +134,101 @@ canvas{
   </div>
 </div>
 
-<!-- VIDEO -->
 <video class="bg-media" autoplay muted loop playsinline>
   <source src="bg.mp4" type="video/mp4">
 </video>
 
-<!-- CLOCK -->
 <div class="top-time" id="topTime">00:00:00</div>
 
-<!-- CANVAS -->
-<canvas id="bg"></canvas>
-
-<!-- MUSIC -->
 <audio id="bg-music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CENTER -->
-<div class="center-wrapper">
+<div style="min-height:100vh;display:flex;justify-content:center;align-items:center">
   <div class="profile-card">
 
-    <img class="logo" src="tth.png" alt="logo">
+    <img src="tth.png" width="130" style="border-radius:18px">
 
-      <p>
-"A King Never Wavers.<br>
-A King Never Bends.<br>
-A King Never Relies On Others.<br>
-A King....Never Gives Up!"<br>
-- Hao -<br>
---"Quin Shi Huang"--
-</p>
+    <p>
+      "A King Never Wavers.<br>
+      A King Never Bends.<br>
+      A King Never Relies On Others.<br>
+      A King....Never Gives Up!"<br>
+      - Hao -<br>
+      --"Quin Shi Huang"--
+    </p>
+
     <h1>Pham Minh Nhat._.</h1>
-<!-- DISCORD CARD -->
-<div class="discord-card">
-  <div class="avatar-wrapper">
-    <img id="dc-avatar">
-    <span id="dc-status"></span>
-  </div>
 
-  <div class="discord-info">
-    <div class="dc-name">
-      <span id="dc-username"></span>
-      <span class="dc-badge">✔</span>
+    <!-- DISCORD -->
+    <div class="discord-card">
+      <div class="avatar-wrapper">
+        <img id="dc-avatar">
+        <span id="dc-status"></span>
+      </div>
+      <div>
+        <div class="dc-name">
+          <span id="dc-username"></span>
+          <span class="dc-badge">✔</span>
+        </div>
+        <div id="dc-activity" class="dc-activity"></div>
+      </div>
     </div>
-    <div id="dc-activity" class="dc-activity"></div>
-  </div>
-</div>
-    <hr style="width:100%;opacity:.6">
-
-    <h3>🔗 Kết nối với tôi</h3>
-
-    <a href="https://www.youtube.com/@MinhhNhatt-0504">
-      <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-    </a>
-
-    <a href="https://gamechim.onrender.com/">
-      <img src="https://img.shields.io/badge/Website-Flappy%20Bird-blue?logo=google-chrome">
-    </a>
-
-    <a href="https://discord.gg/P9yeTvwKjB">
-      <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-    </a>
-
-    <a href="https://guns.lol/phamminhnhat__">
-      <img src="https://img.shields.io/badge/My%20Profile-pink?logo=google-chrome">
-    </a>
 
   </div>
 </div>
 
-<!-- MUSIC CONTROL (NO VOLUME SLIDER) -->
 <script>
 const music = document.getElementById("bg-music");
-
 document.getElementById("enterGate").onclick = () => {
   document.getElementById("enterGate").classList.add("hide");
-  music.volume = 0.6; // 🔊 ÂM LƯỢNG CỐ ĐỊNH
+  music.volume = 0.6;
   music.play();
-  setTimeout(() => document.getElementById("enterGate").remove(), 600);
+  setTimeout(() => enterGate.remove(), 600);
 };
 </script>
 
-<!-- CLOCK -->
 <script>
 (function clock(){
   const el=document.getElementById("topTime");
   function u(){
     const d=new Date();
-    el.textContent=
-      String(d.getHours()).padStart(2,"0")+":"+
-      String(d.getMinutes()).padStart(2,"0")+":"+
-      String(d.getSeconds()).padStart(2,"0");
+    el.textContent =
+      d.toLocaleTimeString("vi-VN",{hour12:false});
   }
   u(); setInterval(u,1000);
 })();
 </script>
+
 <script>
 function loadDiscord(){
   fetch("https://discordstatus-1t6f.onrender.com")
-  .then(r => r.json())
-  .then(d => {
-    document.getElementById("dc-avatar").src = d.avatar;
-    document.getElementById("dc-username").textContent = d.username;
-    document.getElementById("dc-activity").textContent =
-      d.activities[0]?.name || "Offline";
+    .then(r=>r.json())
+    .then(d=>{
+      document.getElementById("dc-avatar").src =
+        d.avatar || "https://cdn.discordapp.com/embed/avatars/0.png";
 
-    const color = {
-      online:"#3ba55d",
-      idle:"#faa61a",
-      dnd:"#ed4245",
-      offline:"#747f8d"
-    };
-    document.getElementById("dc-status").style.background =
-      color[d.status];
-  });
+      document.getElementById("dc-username").textContent =
+        d.username || "Unknown";
+
+      let activity="Không có hoạt động";
+      if(Array.isArray(d.activities) && d.activities.length){
+        activity=d.activities[0].name;
+      }
+      document.getElementById("dc-activity").textContent=activity;
+
+      const color={
+        online:"#3ba55d",
+        idle:"#faa61a",
+        dnd:"#ed4245",
+        offline:"#747f8d"
+      };
+      document.getElementById("dc-status").style.background =
+        color[d.status] || "#747f8d";
+    });
 }
 loadDiscord();
-setInterval(loadDiscord, 15000);
+setInterval(loadDiscord,15000);
 </script>
 
 </body>
