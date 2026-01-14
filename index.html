@@ -294,11 +294,10 @@ canvas{
 A King Never Bends.<br>
 A King Never Relies On Others.<br>
 A King....Never Gives Up!"<br>
-- Hao -<br>
+- Hao! -<br>
 --"Quin Shi Huang"--
 </p>
     <h1>Pham Minh Nhat._.</h1>
-<!-- DISCORD CARD -->
 <div class="discord-card">
   <div class="avatar-wrapper">
     <img id="dc-avatar">
@@ -313,7 +312,6 @@ A King....Never Gives Up!"<br>
     <div id="dc-activity" class="dc-activity"></div>
   </div>
 </div>
-    <hr style="width:100%;opacity:.6">
 
     <h3>🔗 Kết nối với tôi</h3>
 
@@ -363,35 +361,47 @@ document.getElementById("enterGate").onclick = () => {
 })();
 </script>
 <script>
-async function loadDiscord(){
-  try{
-    const r = await fetch("https://discordstatus-1t6f.onrender.com/discord-status");
-    const d = await r.json();
+const fakeDiscord = {
+  username: "phamminhnhat__",
+  avatar: "tth.png",
+  status: ["online", "idle", "dnd"],
+  activities: [
+    "Playing Minecraft",
+    "Listening to Spotify",
+    "Code",
+    "AFK",
+    "Offline"
+  ]
+};
 
-    document.getElementById("dc-avatar").src = d.avatar;
-    document.getElementById("dc-username").textContent = d.username;
+function loadFakeDiscord(){
+  const status =
+    fakeDiscord.status[
+      Math.floor(Math.random() * fakeDiscord.status.length)
+    ];
 
-    document.getElementById("dc-activity").textContent =
-      d.activities?.[0]?.name || "Offline";
+  const activity =
+    fakeDiscord.activities[
+      Math.floor(Math.random() * fakeDiscord.activities.length)
+    ];
 
-    const color = {
-      online:"#3ba55d",
-      idle:"#faa61a",
-      dnd:"#ed4245",
-      offline:"#747f8d"
-    };
+  document.getElementById("dc-avatar").src = fakeDiscord.avatar;
+  document.getElementById("dc-username").textContent = fakeDiscord.username;
+  document.getElementById("dc-activity").textContent = activity;
 
-    document.getElementById("dc-status").style.background =
-      color[d.status] || "#747f8d";
-  }catch(e){
-    console.error("Discord fetch failed", e);
-  }
+  const color = {
+    online:"#3ba55d",
+    idle:"#faa61a",
+    dnd:"#ed4245",
+    offline:"#747f8d"
+  };
+
+  document.getElementById("dc-status").style.background =
+    color[status];
 }
 
-loadDiscord();
-setInterval(loadDiscord, 15000);
+loadFakeDiscord();
+setInterval(loadFakeDiscord, 15000); // đổi trạng thái mỗi 15s
 </script>
-
-
 </body>
 </html>
