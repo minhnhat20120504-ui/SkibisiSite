@@ -253,6 +253,16 @@ canvas{
   font-size:13px;
   opacity:.7;
 }
+.social-links{
+  display:flex;
+  flex-wrap:wrap;        /* tự xuống dòng nếu màn nhỏ */
+  justify-content:center;
+  gap:10px;              /* khoảng cách giữa các badge */
+}
+
+.social-links a{
+  display:inline-flex;
+}
 
 </style>
 </head>
@@ -315,23 +325,22 @@ A King....Never Gives Up!"<br>
 
     <h3>🔗 Kết nối với tôi</h3>
 
-    <a href="https://www.youtube.com/@MinhhNhatt-0504">
-      <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
-    </a>
+   <div class="social-links">
+  <a href="https://www.youtube.com/@MinhhNhatt-0504">
+    <img src="https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube">
+  </a>
 
-    <a href="https://gamechim.onrender.com/">
-      <img src="https://img.shields.io/badge/Website-Flappy%20Bird-blue?logo=google-chrome">
-    </a>
+  <a href="https://gamechim.onrender.com/">
+    <img src="https://img.shields.io/badge/Website-Flappy%20Bird-blue?logo=google-chrome">
+  </a>
 
-    <a href="https://discord.gg/P9yeTvwKjB">
-      <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
-    </a>
+  <a href="https://discord.gg/P9yeTvwKjB">
+    <img src="https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord">
+  </a>
 
-    <a href="https://guns.lol/phamminhnhat__">
-      <img src="https://img.shields.io/badge/My%20Profile-pink?logo=google-chrome">
-    </a>
-
-  </div>
+  <a href="https://guns.lol/phamminhnhat__">
+    <img src="https://img.shields.io/badge/My%20Profile-pink?logo=google-chrome">
+  </a>
 </div>
 
 <!-- MUSIC CONTROL (NO VOLUME SLIDER) -->
