@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](tth.png)
+![Logo](avt.png)
 
 ---
 # SkibisiSite
@@ -11,7 +11,7 @@ Hosted with CloudFlare.com
 ## Files
 - index.html : main website <br>
 - music.mp3  : background music <br>
-- tth.png     : Avt <br>
+- avt.png     : Avt <br>
 -bg.mp4      : Website's Background <br>
 ## Tech
 - Pure HTML / CSS / JavaScript
@@ -26,7 +26,7 @@ Connected to CloudFlare.com as Static Site
 
 [![YouTube](https://img.shields.io/badge/Youtube-MinhNhat-red?logo=Youtube)](https://www.youtube.com/@MinhhNhatt-0504)
 [![Website](https://img.shields.io/badge/Website-https://pmnx.pages.dev/-blue?logo=google-chrome)](https://pmnx.pages.dev/)
-[![Discord](https://img.shields.io/badge/Discord-SupportServer-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/P9yeTvwKjB)
+[![Discord](https://img.shields.io/badge/Discord-SupportServer-5865F2?style=for-the-badge&logo=discord)](https://discord.gg/7yAeEGJwM7)
 
 ---
 
