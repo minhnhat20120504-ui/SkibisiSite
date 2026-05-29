@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](avt.png)
+![Logo](avtt.png)
 
 ---
 # SkibisiSite
