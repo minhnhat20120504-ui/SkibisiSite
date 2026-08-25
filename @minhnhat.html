@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://zyo.lol/mnhat120504 -->
+<html lang="en"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@m</title>
+        <style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><link rel="preload" as="image" href="https://r2.zyo.lol/background_9e04198d0d8b.gif" fetchpriority="high">
+                <link rel="preload" as="image" href="./@minhnhat_files/77b0339673686e9ad42663513e6aae5b.png">
+                <link rel="preload" as="image" href="./@minhnhat_files/idle.png">
+            <link rel="preload" as="image" href="https://zyo.lol/mnhat120504">
+     
+        <link rel="stylesheet" href="./@minhnhat_files/bio.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="stylesheet" href="./@minhnhat_files/fontawesome-all.min.css">
+        <link rel="stylesheet" href="./@minhnhat_files/tippy_scale.css">
+            <link rel="stylesheet" href="./@minhnhat_files/nouislider.min.css">
+            <link href="./@minhnhat_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./@minhnhat_files/iziToast.min.css">
+        <link rel="icon" type="image/x-icon" href="https://zyo.lol/template/img/logo.ico">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="description" content="">
+    <meta name="author" content="minhnhatt | zyo.lol">
+    <meta property="og:title" content="minhnhatt | zyo.lol">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://r2.zyo.lol/background_9e04198d0d8b.gif">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="minhnhatt | zyo.lol">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://r2.zyo.lol/background_9e04198d0d8b.gif">
+    <!-- font 4 bio -->
+    
+                <style>
+                    @font-face {
+                        font-family: 'Starborn';
+                        font-style: normal;
+                        font-weight: 400;
+                        src: url('https://zyo.lol/template/font/Starborn/Starborn.woff') format('woff');
+                    }
+                </style>
+            <style>
+    .zyo-discord-presence-skeleton,
+    .zyo-second-tab-skeleton {
+        width: 100% !important;
+        pointer-events: none;
+    }
+    .zyo-skeleton-widget-content {
+        min-height: 86px;
+    }
+    .zyo-discord-presence-skeleton .widget_text_container,
+    .zyo-second-tab-skeleton .widget_text_container {
+        min-width: 0;
+        flex: 1;
+    }
+    .zyo-discord-presence-skeleton .widget_avatar_container,
+    .zyo-second-tab-skeleton .widget_avatar_container {
+        flex: 0 0 auto;
+    }
+    .zyo-skeleton-circle,
+    .zyo-skeleton-line {
+        width: 100%;
+        display: block;
+        background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.22), rgba(255,255,255,.08));
+        background-size: 220% 100%;
+        animation: zyoSkeletonLoading 1.1s linear infinite;
+    }
+    .zyo-skeleton-circle {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+    .zyo-skeleton-line {
+        width: 100%;
+        max-width: 180px;
+        height: 12px;
+        margin: 6px 0;
+        border-radius: 999px;
+    }
+    .zyo-skeleton-title {
+        max-width: 120px;
+        height: 14px;
+    }
+    .zyo-skeleton-short {
+        max-width: 82px;
+    }
+    .zyo-skeleton-status-dot {
+        width: 18px;
+        height: 18px;
+    }
+    .profile-body-4 .zyo-skeleton-widget-content {
+        min-height: 88px;
+    }
+    .profile-body-4 .zyo-discord-presence-skeleton,
+    .profile-body-4 .zyo-second-tab-skeleton {
+        min-width: 280px;
+    }
+    @media (max-width: 768px) {
+        .profile-body-4 .zyo-discord-presence-skeleton,
+        .profile-body-4 .zyo-second-tab-skeleton {
+            min-width: 0;
+        }
+    }
+    @keyframes zyoSkeletonLoading {
+        from { background-position: 220% 0; }
+        to { background-position: -220% 0; }
+    }
+</style><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  function zyoLoadAnalytics(){
+    if (window.zyoAnalyticsLoaded) {
+      return;
+    }
+    window.zyoAnalyticsLoaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-S74ZMJ88EG';
+    document.head.appendChild(script);
+    gtag('js', new Date());
+    gtag('config', 'G-S74ZMJ88EG');
+  }
+  ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((eventName) => {
+    window.addEventListener(eventName, zyoLoadAnalytics, { once: true, passive: true });
+  });
+  window.addEventListener('load', () => {
+    setTimeout(zyoLoadAnalytics, 3500);
+  });
+</script><script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="75e6fc85-e0b3-4776-8ec0-6cfe3bcd32e0" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script><script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="75e6fc85-e0b3-4776-8ec0-6cfe3bcd32e0" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script><script src="./@minhnhat_files/api.js.tải xuống" async="" defer=""></script><script async="" src="./@minhnhat_files/js"></script></head>
+
+
+<body class="profile-body-1" style=" background: #000000" __processed_a1c0a7dc-f8a1-4c79-8678-46b187a9bd09__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJlbmFibGVkIiwiTElOS0VESU4iOiJlbmFibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMi4xIiwic2NvcmUiOjIwMjAxMH1d"><div id="overlay" class="overlay" bis_skin_checked="1"></div>
+<div closeoutsidepopup="" class="popup_content_container" id="link_preview_container" style="display: none;" bis_skin_checked="1">
+    <h1 class="header" style="font-size: 18px;">Do you want to visit this site?</h1>
+    <div class="input_content" bis_skin_checked="1">
+        <div class="center" bis_skin_checked="1">
+            <input type="text" name="alias" class="input" id="link_preview" readonly="">
+        </div>
+        <div class="flex" bis_skin_checked="1">
+            <button class="close-button" onclick="closePopup(&#39;link_preview_container&#39;)">Go Back</button>
+            <a class="button_submit" id="link_preview_button" style="width: 100px">Visit Site</a>
+        </div>
+    </div>
+</div>
+<style>
+    * {
+        font-family: 'Starborn', sans-serif;        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "slnt" 0;
+        box-sizing: border-box;
+            }
+    </style>
+<style>
+    .tippy-content {
+                                    font-size: 12px;
+                        }
+</style>
+<script>
+                    const fontSize = -2;
+                const textElements = document.querySelectorAll('p, span, h1, h2, h3, h4, h5, h6, .tippy-content');
+    textElements.forEach(el => {
+        const currentSize = window.getComputedStyle(el).fontSize;
+        const newSize = parseFloat(currentSize) + fontSize ?? 0;
+        el.style.fontSize = `${newSize}px`;
+    });
+</script>
+<style>
+    ::selection {
+        background: #ffffff;
+                color: #010101;
+            }
+</style>
+<style>
+    .bio-container {
+                    --iconGlow: drop-shadow(#ffffff 1px 0 7px);
+                --badgeColor: #ffffff;
+                    --badgeGlow: drop-shadow(#ffffff 1px 0 7px);
+                            --audioControlColor: #ffffff ;
+            --audioControlRgba05: rgba(255, 255, 255, 0.5);
+                            --avatarRadius: 50%;
+            }
+</style>
+    <div class="background" id="background" style="background: url(https://r2.zyo.lol/background_9e04198d0d8b.gif)" bis_skin_checked="1">
+            <div id="zyoShaderBackgroundEffect" style="position: fixed; inset: 0px; width: 100vw; height: 100dvh; overflow: hidden; pointer-events: none; z-index: -1;" data-shader-quality="high" bis_skin_checked="1"><canvas class="zyo-shader-background-canvas" data-engine="three.js r165" width="1248" height="614" style="display: block; width: 100%; height: 100%; background: transparent; pointer-events: none; position: relative; z-index: 0;"></canvas><canvas class="zyo-shader-background-canvas" data-engine="three.js r165" width="1248" height="614" style="display: block; width: 100%; height: 100%; background: transparent; pointer-events: none; position: relative; z-index: 0;"></canvas></div>
+        </div>
+    <audio crossorigin="anonymous" loop="" id="audio" data-analytics-played="1">
+        <source src="https://r2.zyo.lol/audioLink_04c8b123fc03.mp3" playsinline="">
+    </audio>
+<script>
+    window.zyoAudioLyricsEnabled = false;
+    window.zyoAudioLyricsRequired = false;
+    window.zyoAudioLyricsVisibleSlots = 3;
+    window.zyoInitialAudioLyrics = {"source":"","track":"minhnhat","synced":""};
+
+    function zyoParseLrcText(text) {
+        const decodeArea = document.createElement('textarea');
+        decodeArea.innerHTML = String(text || '');
+        const normalizedText = decodeArea.value
+            .replace(/\\r\\n/g, '\n')
+            .replace(/\\n/g, '\n')
+            .replace(/\\r/g, '\n')
+            .replace(/\r\n/g, '\n')
+            .replace(/\r/g, '\n')
+            .replace(/\s*(?=\[(?:(?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?)\])/g, '\n')
+            .trim();
+        const lines = normalizedText.split(/\r?\n/);
+        const rawEntries = [];
+
+        function decodeLyric(value) {
+            decodeArea.innerHTML = value;
+            return decodeArea.value;
+        }
+
+        lines.forEach((line) => {
+            const matches = [...line.matchAll(/\[(?:(\d{1,2}):)?(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?\]/g)];
+            if (!matches.length) return;
+
+            const lyric = decodeLyric(line.replace(/\[(?:(?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?)\]/g, '').trim());
+            if (!lyric) return;
+
+            matches.forEach((match) => {
+                const hours = Number(match[1] || 0);
+                const minutes = Number(match[2] || 0);
+                const seconds = Number(match[3] || 0);
+                const fraction = Number(String(match[4] || '0').padEnd(3, '0').slice(0, 3)) / 1000;
+                rawEntries.push({ time: (hours * 3600) + (minutes * 60) + seconds + fraction, text: lyric });
+            });
+        });
+
+        return rawEntries
+            .sort((a, b) => a.time - b.time);
+    }
+
+    function zyoSetCurrentAudioLyrics(track) {
+        window.zyoCurrentAudioLyrics = zyoParseLrcText(track?.lyrics?.synced || track?.synced || '');
+        window.zyoCurrentAudioLyricsActiveIndex = null;
+        zyoRenderAudioLyricsDisplay();
+        zyoUpdateAudioLyricsDisplay(0);
+    }
+
+    function zyoAudioLyricsSlotCount() {
+        return Math.max(3, Number(window.zyoAudioLyricsVisibleSlots || 3));
+    }
+
+    function zyoRenderAudioLyricsDisplay() {
+        const display = document.querySelector('[data-audio-lyrics-display]');
+        const list = display?.querySelector('[data-lyrics-list]');
+        if (!display || !list || !Array.isArray(window.zyoCurrentAudioLyrics)) return;
+
+        const slotCount = zyoAudioLyricsSlotCount();
+        list.innerHTML = '';
+        const spacer = document.createElement('p');
+        spacer.className = 'lyrics_line is-spacer';
+        spacer.dataset.lyricsIndex = '-2';
+        spacer.textContent = '\u00a0';
+        list.appendChild(spacer);
+
+        const intro = document.createElement('p');
+        intro.className = 'lyrics_line is-symbol';
+        intro.dataset.lyricsIndex = '-1';
+        intro.textContent = '♪';
+        list.appendChild(intro);
+
+        window.zyoCurrentAudioLyrics.forEach((line, index) => {
+            const item = document.createElement('p');
+            item.className = 'lyrics_line';
+            item.dataset.lyricsIndex = String(index);
+            item.textContent = line.text;
+            list.appendChild(item);
+        });
+        list.style.setProperty('--lyrics-visible-slots', String(slotCount));
+    }
+
+    function zyoUpdateAudioLyricsDisplay(currentTime) {
+        if (!window.zyoAudioLyricsEnabled || !Array.isArray(window.zyoCurrentAudioLyrics)) return;
+
+        const display = document.querySelector('[data-audio-lyrics-display]');
+        if (!display) return;
+
+        const lines = window.zyoCurrentAudioLyrics;
+        let activeIndex = -1;
+        if (lines[0]?.time <= currentTime + 0.08) {
+            activeIndex = 0;
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].time <= currentTime + 0.08) {
+                    activeIndex = i;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        display.hidden = false;
+        const list = display.querySelector('[data-lyrics-list]');
+        if (list) {
+            const slotCount = zyoAudioLyricsSlotCount();
+            if (list.children.length !== lines.length + 2) {
+                zyoRenderAudioLyricsDisplay();
+            }
+
+            const activeLineIndex = activeIndex < 0 ? -1 : activeIndex;
+            const activeDomIndex = activeLineIndex + 2;
+            const activePosition = activeLineIndex < 0 ? 0 : Math.floor(slotCount / 2);
+            const rowHeight = Number(getComputedStyle(display).getPropertyValue('--lyrics-row-height').replace('px', '')) || 24;
+            const rowGap = Number(getComputedStyle(display).getPropertyValue('--lyrics-row-gap').replace('px', '')) || 8;
+            const targetTop = Math.max(0, (activeDomIndex * (rowHeight + rowGap)) - (activePosition * (rowHeight + rowGap)));
+
+            if (window.zyoCurrentAudioLyricsActiveIndex === activeIndex && list.style.transform === `translateY(-${targetTop}px)`) return;
+            window.zyoCurrentAudioLyricsActiveIndex = activeIndex;
+
+            list.querySelectorAll('.lyrics_line').forEach((line) => {
+                const lineIndex = Number(line.dataset.lyricsIndex || 0);
+                const isActive = lineIndex === activeLineIndex;
+                line.classList.toggle('is-active', isActive);
+                line.classList.toggle('is-near', !isActive);
+                line.classList.toggle('is-hidden-spacer', lineIndex === -2);
+            });
+            list.style.transform = `translateY(-${targetTop}px)`;
+            return;
+        }
+
+        const previous = display.querySelector('[data-lyrics-prev]');
+        const current = display.querySelector('[data-lyrics-current]');
+        const next = display.querySelector('[data-lyrics-next]');
+        if (previous) previous.textContent = lines[activeIndex - 1]?.text || '';
+        if (current) current.textContent = lines[activeIndex]?.text || '';
+        if (next) next.textContent = lines[activeIndex + 1]?.text || '';
+    }
+
+    zyoSetCurrentAudioLyrics({ lyrics: window.zyoInitialAudioLyrics });
+</script>
+<div id="zyoShaderBackgroundEffect" style="position:fixed;inset:0;z-index:-1;width:100vw;height:100dvh;overflow:hidden;pointer-events:none;" bis_skin_checked="1"></div>
+<script type="module">
+    import {
+        createShaderBackgroundEffect,
+        zyoShaderEffectFromBackgroundValue,
+        zyoChromaWavesProps
+    } from 'https://zyo.lol/template/js/shader-background-effects.js?v=20260808-remove-extra';
+
+    const zyoShaderBioIsMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
+        || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    createShaderBackgroundEffect('#zyoShaderBackgroundEffect', {
+        effect: zyoShaderEffectFromBackgroundValue(10),
+        color: '#ffffff',
+        animate: true,
+        width: () => window.innerWidth,
+        height: () => window.innerHeight,
+        renderScale: zyoShaderBioIsMobile ? 0.45 : 0.65,
+        maxDpr: zyoShaderBioIsMobile ? 1 : 1.5,
+        maxFPS: zyoShaderBioIsMobile ? 20 : 30,
+        powerPreference: 'low-power',
+    });
+
+    if (false) {
+    const zyoShaderBioIsMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
+        || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const zyoChromaStorageKey = 'zyo:shader:chroma-waves:props';
+    const zyoChromaDefaultColor = '#ffffff';
+    const zyoChromaDebugPanel = document.getElementById('zyoChromaWavesDebugPanel');
+    let zyoChromaProps = { ...zyoChromaWavesProps, color: zyoChromaDefaultColor };
+    const zyoChromaDefaultPerformance = { maxFPS: 60, renderScale: 1, maxDpr: 2 };
+    let zyoChromaPerformance = { ...zyoChromaDefaultPerformance };
+    const zyoShaderQualityPresets = {
+        full: { maxFPS: 60, renderScale: 1, maxDpr: 2 },
+        high: { maxFPS: 45, renderScale: 0.85, maxDpr: 1.5 },
+        balanced: { maxFPS: 30, renderScale: 0.65, maxDpr: 1.25 },
+        low: { maxFPS: 24, renderScale: 0.5, maxDpr: 1 },
+        potato: { maxFPS: 15, renderScale: 0.35, maxDpr: 0.75 },
+    };
+    let zyoShaderQualityPreset = 'full';
+    if (zyoChromaDebugPanel) {
+        try {
+            const saved = JSON.parse(localStorage.getItem(zyoChromaStorageKey) || 'null');
+            if (saved && typeof saved === 'object') {
+                zyoChromaProps = { ...zyoChromaProps, ...(saved.props || saved) };
+                if (saved.performance && typeof saved.performance === 'object') {
+                    zyoChromaPerformance = { ...zyoChromaPerformance, ...saved.performance };
+                }
+                if (typeof saved.preset === 'string' && zyoShaderQualityPresets[saved.preset]) {
+                    zyoShaderQualityPreset = saved.preset;
+                }
+            }
+        } catch (error) {
+            localStorage.removeItem(zyoChromaStorageKey);
+        }
+    }
+    let zyoShaderDebugEffect = zyoShaderEffectFromBackgroundValue(10) || 1;
+    let zyoChromaInstance = createShaderBackgroundEffect('#zyoShaderBackgroundEffect', {
+        effect: zyoShaderDebugEffect,
+        color: zyoChromaProps.color,
+        props: zyoChromaProps,
+        animate: true,
+        width: () => window.innerWidth,
+        height: () => window.innerHeight,
+        renderScale: zyoChromaPerformance.renderScale,
+        maxDpr: zyoChromaPerformance.maxDpr,
+        maxFPS: zyoChromaPerformance.maxFPS,
+        quality: 'full',
+        powerPreference: 'low-power',
+    });
+    if (zyoChromaDebugPanel && zyoChromaInstance) {
+        const updatePanel = (props) => {
+            Object.entries(props).forEach(([name, value]) => {
+                const input = zyoChromaDebugPanel.querySelector(`[data-chroma-prop="${name}"]`);
+                const output = zyoChromaDebugPanel.querySelector(`[data-chroma-output="${name}"]`);
+                if (input) input.value = value;
+                if (output && name !== 'color') output.value = Number(value).toFixed(2);
+            });
+        };
+        const saveSettings = () => {
+            if (zyoShaderDebugEffect === 1) zyoChromaProps = zyoChromaInstance.getProps();
+            localStorage.setItem(zyoChromaStorageKey, JSON.stringify({ props: zyoChromaProps, performance: zyoChromaPerformance, preset: zyoShaderQualityPreset }));
+            updatePanel(zyoChromaProps);
+        };
+        const updatePerformancePanel = (performance) => {
+            Object.entries(performance).forEach(([name, value]) => {
+                const input = zyoChromaDebugPanel.querySelector(`[data-chroma-performance="${name}"]`);
+                const output = zyoChromaDebugPanel.querySelector(`[data-chroma-performance-output="${name}"]`);
+                if (input) input.value = value;
+                if (output) output.value = Number(value).toFixed(name === 'maxFPS' ? 0 : 2);
+            });
+        };
+        const uniformStorageKey = 'zyo:shader:uniforms';
+        let uniformStorage = {};
+        try { uniformStorage = JSON.parse(localStorage.getItem(uniformStorageKey) || '{}') || {}; } catch (error) { uniformStorage = {}; }
+        const uniformHasHighImpact = (name) => /iter|density|noise|grain|count|turbulence|step|octave|resolution|pixel|scale|dpr/i.test(name);
+        const uniformNumberBounds = (name, value) => {
+            const lowerName = name.toLowerCase();
+            if (/count|iter|octave|step/.test(lowerName)) return { min: 1, max: 128, step: 1 };
+            if (/frequency|scale|density|noise|grain|opacity|alpha|brightness|intensity|amplitude|contrast|speed/.test(lowerName)) return { min: 0, max: 10, step: 0.01 };
+            const numeric = Number(value);
+            const span = Math.max(10, Math.abs(numeric) * 2);
+            return { min: -span, max: span, step: 0.01 };
+        };
+        const saveUniformValue = (name, value) => {
+            uniformStorage[zyoShaderDebugEffect] = { ...(uniformStorage[zyoShaderDebugEffect] || {}), [name]: value };
+            localStorage.setItem(uniformStorageKey, JSON.stringify(uniformStorage));
+        };
+        const renderUniformControls = () => {
+            const list = document.getElementById('zyoShaderDebugUniforms');
+            if (!list || !zyoChromaInstance?.getUniformControls) return;
+            list.innerHTML = '';
+            zyoChromaInstance.getUniformControls().filter((control) => !control.readOnly).forEach((control) => {
+                const row = document.createElement('label');
+                row.className = 'zyo-uniform-row';
+                const label = document.createElement('span');
+                label.className = 'zyo-uniform-label';
+                label.textContent = control.name;
+                if (uniformHasHighImpact(control.name)) {
+                    const impact = document.createElement('small');
+                    impact.className = 'zyo-uniform-impact';
+                    impact.textContent = 'high FPS impact';
+                    label.appendChild(impact);
+                }
+                row.appendChild(label);
+                const savedValue = uniformStorage[zyoShaderDebugEffect]?.[control.name] ?? control.value;
+                const defaultValue = control.value;
+                let input;
+                if (control.type === 'color') {
+                    input = document.createElement('input');
+                    input.type = 'color';
+                    input.value = /^#[0-9a-f]{6}$/i.test(String(savedValue)) ? savedValue : '#ffffff';
+                } else if (control.type === 'number') {
+                    const bounds = uniformNumberBounds(control.name, savedValue);
+                    input = document.createElement('input');
+                    input.type = 'range';
+                    input.min = bounds.min;
+                    input.max = bounds.max;
+                    input.step = bounds.step;
+                    input.value = savedValue;
+                } else {
+                    input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = JSON.stringify(savedValue);
+                }
+                input.dataset.uniformName = control.name;
+                input.addEventListener('input', () => {
+                    let nextValue = input.value;
+                    if (control.type === 'number') nextValue = Number(nextValue);
+                    if (control.type === 'vector' || control.type === 'array') {
+                        try { nextValue = JSON.parse(nextValue); } catch (error) { return; }
+                    }
+                    if (zyoChromaInstance.setUniformValue(control.name, nextValue)) {
+                        saveUniformValue(control.name, nextValue);
+                        updateDebugJson();
+                    }
+                });
+                row.appendChild(input);
+                const reset = document.createElement('button');
+                reset.type = 'button';
+                reset.className = 'zyo-slider-reset';
+                reset.textContent = '↺';
+                reset.title = `Reset ${control.name}`;
+                reset.addEventListener('click', () => {
+                    if (zyoChromaInstance.setUniformValue(control.name, defaultValue)) {
+                        saveUniformValue(control.name, defaultValue);
+                        renderUniformControls();
+                        updateDebugJson();
+                    }
+                });
+                row.appendChild(reset);
+                list.appendChild(row);
+            });
+        };
+        const applySavedUniforms = () => {
+            Object.entries(uniformStorage[zyoShaderDebugEffect] || {}).forEach(([name, value]) => {
+                zyoChromaInstance.setUniformValue?.(name, value);
+            });
+        };
+        const updateDebugJson = () => {
+            const exportData = {
+                effect: zyoShaderDebugEffect,
+                props: zyoChromaInstance.getProps?.() || {},
+                performance: zyoChromaInstance.getPerformance?.() || zyoChromaPerformance,
+                uniforms: Object.fromEntries((zyoChromaInstance.getUniformControls?.() || []).map((control) => [control.name, control.value])),
+            };
+            const json = JSON.stringify(exportData, null, 2);
+            const textarea = document.getElementById('zyoShaderDebugJson');
+            if (textarea) textarea.value = json;
+            window.zyoGetShaderDebugJSON = () => json;
+            return json;
+        };
+        const recreateDebugEffect = (effect) => {
+            zyoChromaInstance?.destroy?.();
+            zyoShaderDebugEffect = Number(effect) || 1;
+            zyoChromaInstance = createShaderBackgroundEffect('#zyoShaderBackgroundEffect', {
+                effect: zyoShaderDebugEffect,
+                color: zyoChromaProps.color,
+                props: zyoShaderDebugEffect === 1 ? zyoChromaProps : undefined,
+                animate: true,
+                width: () => window.innerWidth,
+                height: () => window.innerHeight,
+                renderScale: zyoChromaPerformance.renderScale,
+                maxDpr: zyoChromaPerformance.maxDpr,
+                maxFPS: zyoChromaPerformance.maxFPS,
+                quality: 'full',
+                powerPreference: 'low-power',
+            });
+            applySavedUniforms();
+            renderUniformControls();
+            updateDebugJson();
+            updatePerformancePanel(zyoChromaPerformance);
+            const toggle = document.getElementById('zyoShaderDebugToggle');
+            if (toggle) toggle.textContent = zyoChromaInstance.getPerformance?.().enabled === false ? 'Turn background on' : 'Turn background off';
+        };
+        const resetShaderProps = () => {
+            zyoChromaProps = { ...zyoChromaWavesProps, color: zyoChromaDefaultColor };
+            localStorage.removeItem(zyoChromaStorageKey);
+            localStorage.removeItem(uniformStorageKey);
+            uniformStorage = {};
+            zyoChromaPerformance = { ...zyoChromaDefaultPerformance };
+            zyoShaderQualityPreset = 'full';
+        };
+        const applyShaderQualityPreset = (name) => {
+            zyoShaderQualityPreset = zyoShaderQualityPresets[name] ? name : 'full';
+            zyoChromaPerformance = { ...zyoShaderQualityPresets[zyoShaderQualityPreset] };
+            zyoChromaInstance.setPerformance?.(zyoChromaPerformance);
+            const quality = document.getElementById('zyoShaderDebugQuality');
+            if (quality) quality.value = zyoShaderQualityPreset;
+            updatePerformancePanel(zyoChromaPerformance);
+            saveSettings();
+            updateDebugJson();
+        };
+        window.zyoShaderDebugSetEffect = (effect) => {
+            const nextEffect = Number(effect) || 1;
+            if (nextEffect === zyoShaderDebugEffect && zyoChromaInstance) return;
+            recreateDebugEffect(nextEffect);
+            const select = document.getElementById('zyoShaderDebugEffect');
+            if (select) select.value = String(zyoShaderDebugEffect);
+            applyShaderQualityPreset(zyoShaderQualityPreset);
+        };
+        window.zyoShaderDebugToggle = () => {
+            const isEnabled = zyoChromaInstance.getPerformance?.().enabled !== false;
+            zyoChromaInstance.setEnabled?.(!isEnabled);
+            const toggle = document.getElementById('zyoShaderDebugToggle');
+            if (toggle) toggle.textContent = isEnabled ? 'Turn background on' : 'Turn background off';
+            updateDebugJson();
+        };
+        const effectSelect = document.getElementById('zyoShaderDebugEffect');
+        if (effectSelect) {
+            const changeEffect = (event) => window.zyoShaderDebugSetEffect(event.target.value);
+            effectSelect.onchange = changeEffect;
+            effectSelect.oninput = changeEffect;
+        }
+        const qualitySelect = document.getElementById('zyoShaderDebugQuality');
+        if (qualitySelect) qualitySelect.onchange = (event) => applyShaderQualityPreset(event.target.value);
+        const toggleButton = document.getElementById('zyoShaderDebugToggle');
+        if (toggleButton) toggleButton.onclick = () => window.zyoShaderDebugToggle();
+        document.getElementById('zyoShaderDebugResetAll')?.addEventListener('click', () => {
+            resetShaderProps();
+            recreateDebugEffect(zyoShaderDebugEffect);
+            applyShaderQualityPreset('full');
+        });
+        document.getElementById('zyoShaderDebugCopyJson')?.addEventListener('click', async (event) => {
+            const json = updateDebugJson();
+            try {
+                await navigator.clipboard.writeText(json);
+                event.currentTarget.textContent = 'JSON copied';
+                window.setTimeout(() => { event.currentTarget.textContent = 'Copy JSON'; }, 1400);
+            } catch (error) {
+                const textarea = document.getElementById('zyoShaderDebugJson');
+                textarea?.focus();
+                textarea?.select();
+                event.currentTarget.textContent = 'Select JSON above';
+            }
+        });
+        document.getElementById('zyoShaderDebugEffect').value = String(zyoShaderDebugEffect);
+        document.getElementById('zyoShaderDebugQuality').value = zyoShaderQualityPreset;
+        renderUniformControls();
+        applySavedUniforms();
+        applyShaderQualityPreset(zyoShaderQualityPreset);
+        updateDebugJson();
+        const updateMetrics = () => {
+            const metrics = zyoChromaInstance.getPerformance?.();
+            if (!metrics) return;
+            Object.entries({
+                fps: metrics.fps ? metrics.fps.toFixed(1) : '—',
+                averageFps: metrics.averageFps ? metrics.averageFps.toFixed(1) : '—',
+                frameTime: metrics.frameTime ? `${metrics.frameTime.toFixed(2)} ms` : '—',
+                resolution: `${metrics.width}×${metrics.height} @${metrics.pixelRatio.toFixed(2)}`,
+                quality: `${metrics.quality} / ${metrics.renderMode}`,
+                adaptiveDrops: String(metrics.adaptiveDrops),
+            }).forEach(([name, value]) => {
+                const output = document.querySelector(`[data-chroma-metric="${name}"]`);
+                if (output) output.textContent = value;
+            });
+        };
+        updatePanel(zyoChromaInstance.getProps());
+        updatePerformancePanel(zyoChromaPerformance);
+        zyoChromaDebugPanel.querySelectorAll('[data-chroma-prop]').forEach((input) => {
+            input.addEventListener('input', () => {
+                zyoChromaInstance.setProps?.({ [input.dataset.chromaProp]: input.value });
+                if (input.dataset.chromaProp === 'color') zyoChromaInstance.setColor?.(input.value);
+                saveSettings();
+                updateDebugJson();
+            });
+        });
+        zyoChromaDebugPanel.querySelectorAll('[data-reset-chroma-prop]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const prop = button.dataset.resetChromaProp;
+                zyoChromaInstance.setProps?.({ [prop]: zyoChromaWavesProps[prop] });
+                saveSettings();
+                updatePanel(zyoChromaInstance.getProps());
+                updateDebugJson();
+            });
+        });
+        zyoChromaDebugPanel.querySelectorAll('[data-chroma-performance]').forEach((input) => {
+            input.addEventListener('input', () => {
+                zyoChromaPerformance = { ...zyoChromaPerformance, [input.dataset.chromaPerformance]: input.value };
+                zyoChromaInstance.setPerformance?.(zyoChromaPerformance);
+                saveSettings();
+                updatePerformancePanel(zyoChromaPerformance);
+                updateDebugJson();
+            });
+        });
+        zyoChromaDebugPanel.querySelectorAll('[data-reset-chroma-performance]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const name = button.dataset.resetChromaPerformance;
+                zyoChromaPerformance = { ...zyoChromaPerformance, [name]: zyoChromaDefaultPerformance[name] };
+                zyoChromaInstance.setPerformance?.(zyoChromaPerformance);
+                saveSettings();
+                updatePerformancePanel(zyoChromaPerformance);
+                updateDebugJson();
+            });
+        });
+        window.setInterval(updateMetrics, 500);
+        document.getElementById('zyoChromaWavesReset')?.addEventListener('click', () => {
+            resetShaderProps();
+            zyoChromaInstance.setProps?.({ ...zyoChromaWavesProps, color: zyoChromaDefaultColor });
+            zyoChromaInstance.setPerformance?.(zyoChromaPerformance);
+            const quality = document.getElementById('zyoShaderDebugQuality');
+            if (quality) quality.value = 'full';
+            saveSettings();
+            updatePerformancePanel(zyoChromaPerformance);
+            updateDebugJson();
+        });
+    }
+    }
+</script>
+<script>
+    function createSlider(sliderId, sliderValueId, unit) {
+        var slider = document.getElementById(sliderId);
+        var sliderInput = document.getElementById(sliderValueId);
+
+        var startValue = sliderInput.value ? Number(sliderInput.value) : 0;
+
+        noUiSlider.create(slider, {
+            start: startValue,
+            connect: [true, false],
+            step: 1,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            format: {
+                to: function (value) {
+                    return value + unit;
+                },
+                from: function (value) {
+                    return Number(value.replace(unit, ''));
+                }
+            }
+        });
+
+        let isSliding = false;
+
+        slider.noUiSlider.on('update', function (values, handle) {
+            const valueInt = values[handle];
+            sliderInput.value = valueInt.replace(unit, '');
+        });
+    }
+</script>
+<script src="./@minhnhat_files/iziToast.min.js.tải xuống" type="text/javascript"></script>
+<script src="./@minhnhat_files/main.js.tải xuống" type="text/javascript"></script>
+
+        <div class="overlay_audio" onclick="hideOverlay()" bis_skin_checked="1" style="opacity: 0; display: none;">
+        <p class="text">ENTER</p>
+    </div>
+            <div class="bio-container  " style="
+        --nameColor: #ffffff;
+        --nameColor25: rgba(255, 255, 255, 0.25);
+        --descriptionColor: #ffffff;
+        --backgroundColor: rgba(26, 26, 26, 0);
+        --iconColor: #ffffff;
+        --backgroundBlur: 4px;
+        --nameGlow: 0px 0px 16.5px #ffffff;
+        --descriptionGlow: 0px 0px 16.5px #ffffff;
+        --discordBackground: rgba(26, 26, 26, 0);
+        --discordBorder: rgba(26, 26, 26, 0.1);
+        --discordDescription: rgba(255, 255, 255, 0.7);
+                --borderRadius: 25px;
+        --bioWidth: 730px;
+        --bioBannerHeight: 200px;
+        --bioBannerFadeStop: 100%;
+    " bis_skin_checked="1">
+        <div class="bio_content_container" bis_skin_checked="1">
+                            <div class="content-container css_content_container reveal active" bis_skin_checked="1">
+                                    <div class="bio_banner_container" bis_skin_checked="1">
+                        <img src="./@minhnhat_files/banner_e8c0c4a0c930.gif" alt="" class="bio_banner_img">
+                    </div>
+                                                    <div class="bio_small_infomation" style="bottom: 12px; left: 15px;" bis_skin_checked="1">
+                        
+                        
+                        
+                                                <div class="bio_infomation" data-tippy-content="Profile Views" bis_skin_checked="1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg>
+                                <p class="text">3</p>
+                                                    </div>
+                        
+                        
+                                            </div>
+                                <div class="content" bis_skin_checked="1">
+                    <div class="top cardLeft infoRow" bis_skin_checked="1">
+                                                <div class="img_container" bis_skin_checked="1">
+                            <img src="./@minhnhat_files/77b0339673686e9ad42663513e6aae5b.png" alt="" class="img">
+                                                            <img class="img_effect" style="" src="./@minhnhat_files/venom_no_logo.png">
+                                                    </div>
+                                                <div class="flex-column" bis_skin_checked="1">
+                            <div class="flex" bis_skin_checked="1">
+                                                                    <p data-tippy-content="UID 38,249 " class="header" id="userName" style="min-height: 46.7969px;">mi0UgRT2</p>
+                                                                                            </div>
+                                                                                        <div class="svg_container" style="" bis_skin_checked="1">
+                                                                                                                                                            <a href="https://discord.com/users/1089049623265550396" target="_blank" rel="noopener noreferrer" class="svg_item singleColor" bis_skin_checked="1">
+                                                <svg id="discordSvg" viewBox="0 0 24 24" width="1em" height="1em" fill="Currentcolor" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"></path></svg>                                            </a>
+                                                                                                                                                                                                                                        <a href="https://instagram.com/pmnx_0/" target="_blank" rel="noopener noreferrer" class="svg_item singleColor" bis_skin_checked="1">
+                                                <svg id="instagramSvg" width="1em" height="1em" fill="Currentcolor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path></svg>                                            </a>
+                                                                                                                                                                                                                                        <a href="https://tiktok.com/@mnhat120504?lang=vi-VN" target="_blank" rel="noopener noreferrer" class="svg_item singleColor" bis_skin_checked="1">
+                                                <svg id="tiktokSvg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="Currentcolor" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"></path></svg>                                            </a>
+                                                                                                                                                </div>
+                                                    </div>
+                    </div>
+                                                                                    <div class="flex_discord" bis_skin_checked="1">
+                                                                                        <div class="widget_container discord_presence_widget discord_presence_layout_1" bis_skin_checked="1">
+    <div class="widget_content reveal active" bis_skin_checked="1">
+        <div class="widget_avatar_container" bis_skin_checked="1">
+            <img src="./@minhnhat_files/77b0339673686e9ad42663513e6aae5b.png" class="widget_avatar discord_presence_avatar">
+<img src="./@minhnhat_files/a_3c97a2d37f433a7913a1c7b7a735d000.png" class="widget_avatar_effect">
+            <img src="./@minhnhat_files/idle.png" class="widget_status discord_presence_status">
+        </div>
+        <div class="widget_text_container" bis_skin_checked="1">
+            <div class="widget_text_inner" bis_skin_checked="1">
+<div class="widget_tag_flex discord_presence_tag_flex" bis_skin_checked="1">
+    <div class="widget_name_container discord_presence_name_container" data-widget-marquee-observed="1" bis_skin_checked="1" style="--overflow-offset: 0px;"><a href="https://discord.com/users/1089049623265550396" target="_blank" rel="noopener noreferrer" class="widget_name widget_discord_name_link discord_presence_name" style="">phamminhnhat__</a></div>
+    <div class="widget_tag_container discord_presence_tag_container" bis_skin_checked="1">
+    <img src="./@minhnhat_files/3858554c542da4e8e4b52ff00a558ced.png" alt="tag" class="widget_tag_img discord_presence_tag_badge">
+    <p class="widget_tag_text discord_presence_tag">CODE</p>
+</div>
+
+</div>
+<div class="discord_presence_description_block" bis_skin_checked="1">
+    <div class="widget_description_container discord_presence_description_container" data-widget-marquee-observed="1" bis_skin_checked="1" style="--overflow-offset: 0px;">
+<div class="widget_description discord_presence_description" bis_skin_checked="1" style="">
+    
+    <span style="align-items: flex-end;">😂</span>
+</div>
+    </div>
+<div class="widget_link_wrapper discord_presence_view_profile_wrapper" bis_skin_checked="1"><a href="https://discord.com/users/1089049623265550396" target="_blank" rel="noopener noreferrer" class="widget_link discord_presence_view_profile">View Profile</a></div>
+</div>
+            </div>
+            
+        </div>
+    </div>
+</div>                                                                                </div>
+                                                                                                                    </div>
+            </div>
+                        	                <div class="audio_container css_content_container reveal active" style="padding: 15px;" bis_skin_checked="1">
+	                    <div class="audio_main_content" bis_skin_checked="1">
+	                    <div id="audio_avatar_container" bis_skin_checked="1">
+                                                    <svg class="audio_image_svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512">
+                                <path id="ignore" d="M406.3 48.2c-4.7.9-202 39.2-206.2 40-4.2.8-8.1 3.6-8.1 8v240.1c0 1.6-.1 7.2-2.4 11.7-3.1 5.9-8.5 10.2-16.1 12.7-3.3 1.1-7.8 2.1-13.1 3.3-24.1 5.4-64.4 14.6-64.4 51.8 0 31.1 22.4 45.1 41.7 47.5 2.1.3 4.5.7 7.1.7 6.7 0 36-3.3 51.2-13.2 11-7.2 24.1-21.4 24.1-47.8V190.5c0-3.8 2.7-7.1 6.4-7.8l152-30.7c5-1 9.6 2.8 9.6 7.8v130.9c0 4.1-.2 8.9-2.5 13.4-3.1 5.9-8.5 10.2-16.2 12.7-3.3 1.1-8.8 2.1-14.1 3.3-24.1 5.4-64.4 14.5-64.4 51.7 0 33.7 25.4 47.2 41.8 48.3 6.5.4 11.2.3 19.4-.9s23.5-5.5 36.5-13c17.9-10.3 27.5-26.8 27.5-48.2V55.9c-.1-4.4-3.8-8.9-9.8-7.7z" fill="currentColor"></path>
+                            </svg>
+                                            </div>
+                    <div class="audio_content_container" bis_skin_checked="1">
+                                                    <h1 class="name widget_marquee_container" id="musicName" data-widget-marquee="" data-widget-marquee-observed="1" style="--overflow-offset: 0px;"><span class="widget_marquee_content" style="">minhnhat</span></h1>
+                                                <div class="flex" bis_skin_checked="1">
+                            <span class="duration" id="currentTime">0:05</span>
+                            <div class="slideTrack noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr" id="slideTrack" bis_skin_checked="1"><div class="noUi-base" bis_skin_checked="1"><div class="noUi-connects" bis_skin_checked="1"><div class="noUi-connect" style="transform: translate(0%, 0px) scale(0.026, 1);" bis_skin_checked="1"></div></div><div class="noUi-origin" style="transform: translate(-974%, 0px); z-index: 4;" bis_skin_checked="1"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="100.0" aria-valuenow="2.6" aria-valuetext="2.6" bis_skin_checked="1"><div class="noUi-touch-area" bis_skin_checked="1"></div></div></div></div></div>
+                            <span style="margin-right: 8px" class="duration" id="totalTime">3:25</span>
+                            <button id="backward">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 51.532 51.532" fill="currentColor" xml:space="preserve"><path d="M6.631 1.963a6.63 6.63 0 0 1 6.631 6.631V23.81a4 4 0 0 1 1-.831l31.27-18.053a3.998 3.998 0 0 1 6 3.464v36.105a4 4 0 0 1-6 3.463l-31.27-18.053a4 4 0 0 1-1-.83v13.863a6.631 6.631 0 0 1-13.262 0V8.594a6.63 6.63 0 0 1 6.631-6.631"></path></svg>
+                            </button>
+                            <button id="playPause">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 16h-2V8h2m-4 8H9V8h2m1-6A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg>
+                            </button>
+                            <button id="forward">
+                                <svg style="transform: rotate(180deg)" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.532 51.532" fill="currentColor" xml:space="preserve"><path d="M6.631 1.963a6.63 6.63 0 0 1 6.631 6.631V23.81a4 4 0 0 1 1-.831l31.27-18.053a3.998 3.998 0 0 1 6 3.464v36.105a4 4 0 0 1-6 3.463l-31.27-18.053a4 4 0 0 1-1-.83v13.863a6.631 6.631 0 0 1-13.262 0V8.594a6.63 6.63 0 0 1 6.631-6.631"></path></svg>
+                            </button>
+                        </div>
+	                    </div>
+	                    </div>
+	                    	                </div>
+                    </div>
+    </div>
+<script type="module" src="./@minhnhat_files/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c8fdcc55826a42c5a2f73fa9a9e6223c&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+
+<script src="./@minhnhat_files/popper.min.js.tải xuống"></script>
+<script src="./@minhnhat_files/tippy-bundle.umd.min.js.tải xuống"></script>
+<script src="./@minhnhat_files/nouislider.min.js.tải xuống" type="text/javascript"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // tooltip
+        tippy('[data-tippy-content]', {
+            theme: 'tooltip_container',
+            arrow: false,
+            allowHTML: true,
+            maxWidth: '92vw',
+            animation: 'scale',
+            delay: [0, 150],
+        });
+    });
+        function copyTextFromParent(parentElement) {
+        const paragraph = parentElement.querySelector('p');
+
+        if (paragraph) {
+            const textToCopy = paragraph.textContent;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+
+            textarea.select();
+            document.execCommand('copy');
+
+            document.body.removeChild(textarea);
+
+            showSuccessPopup('Text copied ' + textToCopy);
+        } else {
+            showErrorPopup('Something went wrong!');
+        }
+    }
+    function revealElements() {
+        const reveals = document.querySelectorAll('.reveal');
+        for (let i = 0; i < reveals.length; i++) {
+            reveals[i].classList.add('active');
+        }
+    }
+    const background = document.getElementById('background');
+            background.innerHTML = `
+            <div id="zyoShaderBackgroundEffect" style="position:fixed;inset:0;width:100vw;height:100dvh;overflow:hidden;pointer-events:none;"></div>
+        `
+        import('https://zyo.lol/template/js/shader-background-effects.js?v=20260808-remove-extra').then(({ createShaderBackgroundEffect, zyoShaderEffectFromBackgroundValue }) => {
+            const zyoShaderBioIsMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent)
+                || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+            createShaderBackgroundEffect('#zyoShaderBackgroundEffect', {
+                effect: zyoShaderEffectFromBackgroundValue(10),
+                color: '#ffffff',
+                animate: true,
+                width: () => window.innerWidth,
+                height: () => window.innerHeight,
+                renderScale: zyoShaderBioIsMobile ? 0.45 : 0.65,
+                maxDpr: zyoShaderBioIsMobile ? 1 : 1.5,
+                maxFPS: zyoShaderBioIsMobile ? 20 : 30,
+                powerPreference: 'low-power',
+            });
+        });
+    </script>
+<script>
+    function adjustChildPosition() {
+        const parent = document.querySelector('.css_content_container');
+        const child = document.querySelector('.bio_small_infomation');
+        const styles = window.getComputedStyle(parent);
+        const borderRadius = parseFloat(styles.borderRadius);
+        const bottom = 12 + 0.16 * (borderRadius - 25);
+        const left = 15 + 0.16 * (borderRadius - 25);
+        child.style.bottom = `${bottom}px`;
+        child.style.left = `${left}px`;
+    }
+    adjustChildPosition();
+</script>
+<script>
+    function hideOverlay() {
+        const overlay = document.querySelector('.overlay_audio');
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 300);
+        revealElements();
+                
+                                                                audio.play();
+                                        const playPauseButton = document.getElementById("playPause");
+                const currentTimeDisplay = document.getElementById("currentTime");
+                const totalTimeDisplay = document.getElementById("totalTime");
+                function audioTrackSilder(sliderId) {
+                    var slider = document.getElementById(sliderId);
+
+                    noUiSlider.create(slider, {
+                        start: 0,
+                        connect: [true, false],
+                        step: 0.1,
+                        range: {
+                            'min': 0,
+                            'max': 100
+                        },
+                        format: {
+                            to: function (value) {
+                                return value;
+                            },
+                            from: function (value) {
+                                return Number(value);
+                            }
+                        }
+                    });
+
+                    let isProgrammaticUpdate = false;
+
+                    slider.noUiSlider.on('update', function (values, handle) {
+                        if (isProgrammaticUpdate) {
+                            return;
+                        }
+                        const valueInt = values[handle];
+                        const seekTime = (valueInt / 100) * (audio.duration || 0);
+                        audio.currentTime = seekTime;
+                    });
+
+                    return {
+                        instance: slider.noUiSlider,
+                        set(value) {
+                            isProgrammaticUpdate = true;
+                            slider.noUiSlider.set(value);
+                            isProgrammaticUpdate = false;
+                        }
+                    };
+                }
+                const sliderInstance = audioTrackSilder('slideTrack');
+                function formatTime(seconds) {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60);
+                    return `${mins}:${secs < 10 ? "0" + secs : secs}`;
+                }
+                function updateTrack() {
+                    sliderInstance.set((audio.currentTime / audio.duration) * 100 || 0);
+                    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+                }
+                playPauseButton.addEventListener("click", () => {
+                    if (audio.paused) {
+                        audio.play();
+                        playPauseButton.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M15 16h-2V8h2m-4 8H9V8h2m1-6A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg>
+                        `;
+                    } else {
+                        audio.pause();
+                        playPauseButton.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10 16.5v-9l6 4.5M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg>
+                        `
+                    }
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.code === "Space") {
+                        playPauseButton.click();
+                    }
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.code === "ArrowLeft") {
+                        audio.currentTime -= 5;
+                    }
+                });
+                document.addEventListener("keydown", (e) => {
+                    if (e.code === "ArrowRight") {
+                        audio.currentTime += 5;
+                    }
+                });
+                                totalTimeDisplay.textContent = '3:25';
+                                audio.addEventListener("timeupdate", updateTrack);
+                audio.addEventListener("timeupdate", () => zyoUpdateAudioLyricsDisplay(audio.currentTime));
+                                }
+    audio.volume = 1;
+</script>
+<script defer="">
+    const zyoViewProofConfig = {
+        endpoint: "https:\/\/zyo.lol\/php\/api\/view_count",
+        userId: 38249,
+        timestamp: "1787617838",
+        signature: "3646de62f0cce7db27b48907a090539edf0ced456c3c8c83bee497253579229a",
+        proofEnabled: true,
+        pow: {"seed":"0397a371e81cd1e7","difficulty":18,"timestamp":1787617838,"blob":"0397a371e81cd1e7.18.1787617838.ea86c74308bb.38249.profile_view.e7c3fa40c28e55d2859c712d4d38c3ee"},
+        powWorkerUrl: "\/template\/js\/pow_solver.js?v=1787380221",
+        turnstileEnabled: true,
+        turnstileSiteKey: "0x4AAAAAAEYMsvotTS0j9mY0",
+        turnstileCdata: "58f52c5f6bfeceebfcb64102e3147b55"    };
+
+    function zyoSolveViewPow() {
+        return new Promise((resolve, reject) => {
+            if (!window.Worker) {
+                reject(new Error('worker_unavailable'));
+                return;
+            }
+
+            const worker = new Worker(zyoViewProofConfig.powWorkerUrl);
+            const timeout = setTimeout(() => {
+                worker.terminate();
+                reject(new Error('pow_timeout'));
+            }, 25000);
+
+            worker.onmessage = (event) => {
+                if (!event.data || event.data.nonce === null || typeof event.data.nonce === 'undefined') {
+                    return;
+                }
+                clearTimeout(timeout);
+                worker.terminate();
+                resolve(String(event.data.nonce));
+            };
+            worker.onerror = () => {
+                clearTimeout(timeout);
+                worker.terminate();
+                reject(new Error('pow_failed'));
+            };
+            worker.postMessage({
+                seed: zyoViewProofConfig.pow.seed,
+                difficulty: zyoViewProofConfig.pow.difficulty
+            });
+        });
+    }
+
+    function zyoGetViewTurnstileToken() {
+        if (!zyoViewProofConfig.turnstileEnabled) {
+            return Promise.resolve('');
+        }
+
+        return new Promise((resolve, reject) => {
+            const container = document.createElement('div');
+            container.style.position = 'fixed';
+            container.style.width = '0';
+            container.style.height = '0';
+            container.style.overflow = 'hidden';
+            container.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(container);
+
+            let settled = false;
+            const finish = (callback, value) => {
+                if (settled) return;
+                settled = true;
+                callback(value);
+            };
+            const render = () => {
+                try {
+                    const widgetId = window.turnstile.render(container, {
+                        sitekey: zyoViewProofConfig.turnstileSiteKey,
+                        execution: 'execute',
+                        action: 'zyo_view',
+                        cData: zyoViewProofConfig.turnstileCdata,
+                        callback: (token) => finish(resolve, String(token || '')),
+                        'error-callback': () => finish(reject, new Error('turnstile_failed')),
+                        'expired-callback': () => finish(reject, new Error('turnstile_expired')),
+                        'timeout-callback': () => finish(reject, new Error('turnstile_timeout'))
+                    });
+                    window.turnstile.execute(widgetId);
+                } catch (error) {
+                    finish(reject, error);
+                }
+            };
+
+            if (window.turnstile) {
+                render();
+                return;
+            }
+
+            window.zyoViewTurnstileReady = render;
+            const script = document.createElement('script');
+            script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=zyoViewTurnstileReady';
+            script.async = true;
+            script.defer = true;
+            script.onerror = () => finish(reject, new Error('turnstile_unavailable'));
+            document.head.appendChild(script);
+        });
+    }
+
+    const zyoViewProofPromise = zyoViewProofConfig.proofEnabled
+        ? zyoSolveViewPow()
+            .then((powNonce) => zyoGetViewTurnstileToken().then((turnstileToken) => [powNonce, turnstileToken]))
+            .catch(() => null)
+        : Promise.resolve(['', '']);
+
+    const zyoAnalyticsConfig = {
+        endpoint: "https:\/\/zyo.lol\/php\/api\/analytics_event",
+        profileUserId: 38249,
+        viewerUserId: 38249,
+        referrer: null,
+        timestamp: "1787617838",
+        signatures: {"profile_view":"685e32a85032d818d045089bddd6090c237549cab52c15764e39b26173034a49","link_click":"4ec204382e09ebfb46d867486eb0eb058354749dcf4ab5bf784242236c1329c1","widget_click":"dbd60428432d62c78c55f2c117152e091f5305b02f0d772dfea8917d39ee0b0d","audio_play":"adbb38757b27ca0f2980745a7a7f6248ee5109bcdc2376676a93e63c2d7243d8","discord_profile_click":"24081a7ca3addfb50ae0d8518430431f9bc41f0c630caa61e68f59ea6b4c424d","second_tab_open":"6e9ae1396cfce7d0ee98278fd529fafef88612cd96bfe6a489084f6712ba063c","like":"fb00d9531835727ba74981ff7fba60b3c93c4d737faa8c733b24254b16c70fbb"}    };
+
+    function zyoNormalizeAnalyticsEndpoint(rawEndpoint) {
+        const value = String(rawEndpoint || '').trim();
+        if (!value) {
+            return '/php/api/analytics_event';
+        }
+
+        try {
+            const url = new URL(value, window.location.origin);
+            url.pathname = url.pathname.replace(/\/{2,}/g, '/');
+            return url.toString();
+        } catch (error) {
+            return value.replace(/([^:]\/)\/+/g, '$1');
+        }
+    }
+
+    const zyoAnalyticsQueue = new Map();
+    const zyoAnalyticsTrackedKeys = new Set();
+    let zyoAnalyticsFlushTimer = null;
+    let zyoAnalyticsVerified = !zyoViewProofConfig.proofEnabled;
+
+    function zyoAnalyticsEventKey(eventType, targetType, targetId) {
+        return [eventType, targetType || '', targetId || ''].join('|');
+    }
+
+    function zyoSendAnalyticsBatch(events, useBeacon = false) {
+        if (!Array.isArray(events) || events.length === 0 || !navigator.sendBeacon && !window.fetch) {
+            return;
+        }
+
+        const payload = JSON.stringify({
+            profile_user_id: zyoAnalyticsConfig.profileUserId,
+            viewer_user_id: zyoAnalyticsConfig.viewerUserId,
+            timestamp: zyoAnalyticsConfig.timestamp,
+            events: events,
+            signatures: zyoAnalyticsConfig.signatures
+        });
+
+        const analyticsEndpoint = zyoNormalizeAnalyticsEndpoint(zyoAnalyticsConfig.endpoint);
+        if (!analyticsEndpoint) return;
+
+        if (useBeacon && navigator.sendBeacon) {
+            const blob = new Blob([payload], { type: 'application/json' });
+            if (navigator.sendBeacon(analyticsEndpoint, blob)) {
+                return;
+            }
+        }
+
+        fetch(analyticsEndpoint, {
+            method: 'POST',
+            keepalive: true,
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Timestamp': zyoAnalyticsConfig.timestamp,
+                'X-Sign': zyoAnalyticsConfig.signatures.profile_view || ''
+            },
+            body: payload
+        }).catch(() => {});
+    }
+
+    function zyoFlushAnalyticsQueue(useBeacon = false) {
+        if (zyoAnalyticsFlushTimer) {
+            clearTimeout(zyoAnalyticsFlushTimer);
+            zyoAnalyticsFlushTimer = null;
+        }
+        if (!zyoAnalyticsVerified) {
+            return;
+        }
+        const events = Array.from(zyoAnalyticsQueue.values()).slice(0, 40);
+        zyoAnalyticsQueue.clear();
+        zyoSendAnalyticsBatch(events, useBeacon);
+    }
+
+    function zyoQueueAnalyticsEvent(eventType, targetType = '', targetId = '', metadata = {}, flushDelay = 3500) {
+        if (!zyoAnalyticsConfig.signatures[eventType]) {
+            return;
+        }
+
+        const safeTargetId = String(targetId || '').slice(0, 180);
+        const key = zyoAnalyticsEventKey(eventType, targetType, safeTargetId);
+        if (zyoAnalyticsTrackedKeys.has(key)) {
+            return;
+        }
+        zyoAnalyticsTrackedKeys.add(key);
+
+        const current = zyoAnalyticsQueue.get(key);
+        if (current) {
+            return;
+        }
+
+        zyoAnalyticsQueue.set(key, {
+            event_type: eventType,
+            target_type: String(targetType || '').slice(0, 60),
+            target_id: safeTargetId,
+            event_count: 1,
+            metadata: metadata || {}
+        });
+
+        if (zyoAnalyticsQueue.size >= 20) {
+            zyoFlushAnalyticsQueue(false);
+            return;
+        }
+
+        if (flushDelay <= 0) {
+            zyoFlushAnalyticsQueue(false);
+            return;
+        }
+
+        if (!zyoAnalyticsFlushTimer) {
+            zyoAnalyticsFlushTimer = setTimeout(() => zyoFlushAnalyticsQueue(false), flushDelay);
+        }
+    }
+
+    function zyoTrackAnalyticsEvent(eventType, targetType = '', targetId = '', metadata = {}) {
+        zyoQueueAnalyticsEvent(eventType, targetType, targetId, metadata);
+    }
+
+    function zyoAnalyticsWidgetFromElement(targetElement) {
+        return targetElement ? targetElement.closest('.zyo_profile_widget, .widget_profile_container, .bio_widgets_grid .css_content_container') : null;
+    }
+
+    function zyoAnalyticsWidgetType(widget) {
+        if (!widget) return '';
+        return String(widget.dataset.profileWidgetType || widget.dataset.widgetType || widget.dataset.bioWidgetType || widget.className || 'widget').slice(0, 120);
+    }
+
+    function zyoTrackAnalyticsLink(targetElement, targetType = 'link') {
+        if (!targetElement) return;
+
+        let href = '';
+        if (targetElement.matches('a[href]')) {
+            href = targetElement.getAttribute('href') || '';
+        } else {
+            const socialParent = targetElement.closest('button.svg_item, .svg_item, .svg_text, .socialText, .social_text, [data-social-url], [data-analytics-href], [onclick*="openPopupPreview"]');
+            const sourceElement = socialParent || targetElement;
+            const hiddenText = targetElement.matches('.svg_text, .socialText, .social_text')
+                ? targetElement
+                : sourceElement.querySelector('.svg_text, .socialText, .social_text');
+            const onclickValue = [
+                targetElement.getAttribute('onclick'),
+                sourceElement.getAttribute('onclick')
+            ].filter(Boolean).join(' ');
+            const popupLink = onclickValue.match(/openPopupPreview\(['"](.+?)['"]\)/);
+            href = targetElement.dataset.analyticsHref
+                || targetElement.dataset.socialUrl
+                || sourceElement.dataset.analyticsHref
+                || sourceElement.dataset.socialUrl
+                || (popupLink ? popupLink[1] : '')
+                || targetElement.getAttribute('data-tippy-content')
+                || sourceElement.getAttribute('data-tippy-content')
+                || (hiddenText ? hiddenText.textContent : '')
+                || '';
+        }
+
+        href = String(href).trim();
+        if (!href || href.startsWith('#') || href.startsWith('javascript:')) {
+            return;
+        }
+
+        const isDiscordProfile = href.includes('discord.com/users/');
+        const widget = zyoAnalyticsWidgetFromElement(targetElement);
+        const finalTargetType = widget && targetType === 'link' ? 'widget_link' : targetType;
+        zyoTrackAnalyticsEvent(isDiscordProfile ? 'discord_profile_click' : 'link_click', finalTargetType, href, {
+            widget_type: widget ? zyoAnalyticsWidgetType(widget) : ''
+        });
+    }
+
+    document.addEventListener('click', function(event) {
+        let trackedPrimaryClick = false;
+        const widget = zyoAnalyticsWidgetFromElement(event.target);
+        const anchor = event.target.closest('a[href]');
+        if (anchor) {
+            zyoTrackAnalyticsLink(anchor, widget ? 'widget_link' : 'link');
+            trackedPrimaryClick = true;
+        } else {
+            const socialButton = event.target.closest('button.svg_item, .svg_item, .svg_text, .socialText, .social_text, [data-social-url], [data-analytics-href], [onclick*="openPopupPreview"]');
+            if (socialButton) {
+                zyoTrackAnalyticsLink(socialButton, 'social');
+                trackedPrimaryClick = true;
+            }
+        }
+
+        if (widget && !trackedPrimaryClick) {
+            const service = zyoAnalyticsWidgetType(widget);
+            zyoTrackAnalyticsEvent('widget_click', 'widget', String(service).slice(0, 120));
+        }
+
+        if (event.target.closest('[data-second-tab], .second_tab, .second-tab')) {
+            zyoTrackAnalyticsEvent('second_tab_open', 'second_tab', 'open');
+        }
+    }, { passive: true });
+
+    document.querySelectorAll('audio, video#video').forEach((audio) => {
+        audio.addEventListener('play', function() {
+            if (audio.dataset.analyticsPlayed === '1') return;
+            audio.dataset.analyticsPlayed = '1';
+            zyoTrackAnalyticsEvent('audio_play', 'audio', audio.currentSrc || audio.src || 'audio');
+        }, { passive: true });
+    });
+
+    window.addEventListener('pagehide', () => zyoFlushAnalyticsQueue(true));
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            zyoFlushAnalyticsQueue(true);
+        }
+    });
+
+    setTimeout(async () => {
+        try {
+            const proof = await zyoViewProofPromise;
+            if (!proof) return;
+            const [powNonce, turnstileToken] = proof;
+            const response = await fetch(zyoViewProofConfig.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Timestamp': zyoViewProofConfig.timestamp,
+                    'X-Sign': zyoViewProofConfig.signature
+                },
+                body: JSON.stringify({
+                    user_id: zyoViewProofConfig.userId,
+                    pow_blob: zyoViewProofConfig.pow ? zyoViewProofConfig.pow.blob : '',
+                    pow_nonce: powNonce,
+                    turnstile_token: turnstileToken
+                })
+            });
+            if (!response.ok) return;
+            const result = await response.json();
+            if (!result || result.verified !== true) return;
+            zyoAnalyticsVerified = true;
+            zyoFlushAnalyticsQueue(false);
+        } catch (error) {}
+    }, 3000);
+</script>
+<style>
+    .text_effect_5 {
+        color: var(--nameColor, #f8f8f8);
+        background: linear-gradient(90deg, transparent, var(--nameColor, #f8f8f8), transparent);
+        background-repeat: no-repeat;
+        background-size: 80%;
+        animation: shine_effect 2s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: var(--nameColor25, rgba(248, 248, 248, 0.25));
+        background-clip: text;
+    }
+    /* shine */
+    .text_effect_3 {
+        overflow: hidden;
+        background: linear-gradient(90deg, #000, var(--nameColor), var(--nameColor), #000);
+        background-repeat: no-repeat;
+        background-size: 80%;
+        animation: shine_effect 2s linear infinite;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    }
+</style>
+    <script>
+        function zyoWidgetMarqueeContent(container) {
+            if (container.matches?.('[data-widget-marquee]')) {
+                return container.querySelector('.widget_marquee_content');
+            }
+
+            return container.classList.contains('widget_name_container')
+                ? container.querySelector('.widget_name')
+                : container.querySelector('.widget_description');
+        }
+
+        function zyoWidgetMarqueeSelector() {
+            return '.widget_description_container, .widget_name_container, [data-widget-marquee]';
+        }
+
+        function zyoUpdateGithubContributionScale(root = document) {
+            root.querySelectorAll?.('.github_contrib_graph').forEach((graph) => {
+                const scaleTarget = graph.querySelector('.github_contrib_graph_scale');
+                if (!scaleTarget) {
+                    return;
+                }
+
+                window.requestAnimationFrame(() => {
+                    const fullWidth = scaleTarget.scrollWidth;
+                    const availableWidth = graph.clientWidth;
+                    const scale = fullWidth > 0 && availableWidth > 0 ? Math.min(1, availableWidth / fullWidth) : 1;
+                    graph.style.setProperty('--github-contrib-scale', String(Math.max(.55, scale)));
+                });
+            });
+        }
+
+        function zyoUpdateWidgetDescriptionMarquee(root = document) {
+            root.querySelectorAll?.(zyoWidgetMarqueeSelector()).forEach((container) => {
+                const content = zyoWidgetMarqueeContent(container);
+                if (!content) {
+                    return;
+                }
+
+                window.requestAnimationFrame(() => {
+                    const inlineMaxWidth = content.style.maxWidth;
+                    content.style.maxWidth = 'none';
+                    const contentWidth = content.scrollWidth;
+                    content.style.maxWidth = inlineMaxWidth;
+                    const overflowOffset = Math.ceil(contentWidth - container.clientWidth);
+                    if (overflowOffset <= 0) {
+                        if (container.classList.contains('is-marquee')) {
+                            container.classList.remove('is-marquee');
+                        }
+                        container.style.setProperty('--overflow-offset', '0px');
+                        return;
+                    }
+
+                    container.style.setProperty('--overflow-offset', `${overflowOffset}px`);
+                    container.style.setProperty('--widget-marquee-duration', '8s');
+                    if (!container.classList.contains('is-marquee')) {
+                        container.classList.add('is-marquee');
+                    }
+                });
+            });
+
+            zyoUpdateGithubContributionScale(root);
+        }
+
+        function zyoObserveWidgetDescriptionMarquee(root = document) {
+            if (!window.ResizeObserver) {
+                return;
+            }
+
+            if (!window.zyoWidgetDescriptionResizeObserver) {
+                window.zyoWidgetDescriptionResizeObserver = new ResizeObserver((entries) => {
+                    window.zyoWidgetDescriptionResizeQueue = window.zyoWidgetDescriptionResizeQueue || new Set();
+
+                    entries.forEach((entry) => {
+                        const target = entry.target;
+                        const container = target.matches?.(zyoWidgetMarqueeSelector())
+                            ? target
+                            : target.closest?.(zyoWidgetMarqueeSelector());
+
+                        if (container) {
+                            window.zyoWidgetDescriptionResizeQueue.add(container);
+                        }
+                    });
+
+                    window.cancelAnimationFrame(window.zyoWidgetDescriptionResizeFrame);
+                    window.zyoWidgetDescriptionResizeFrame = window.requestAnimationFrame(() => {
+                        window.zyoWidgetDescriptionResizeQueue.forEach((container) => {
+                            zyoUpdateWidgetDescriptionMarquee(container.parentElement || container);
+                        });
+                        window.zyoWidgetDescriptionResizeQueue.clear();
+                    });
+                });
+            }
+
+            root.querySelectorAll?.(zyoWidgetMarqueeSelector()).forEach((container) => {
+                if (container.dataset.widgetMarqueeObserved === '1') {
+                    return;
+                }
+
+                const content = zyoWidgetMarqueeContent(container);
+                window.zyoWidgetDescriptionResizeObserver.observe(container);
+                if (content) {
+                    window.zyoWidgetDescriptionResizeObserver.observe(content);
+                }
+                container.dataset.widgetMarqueeObserved = '1';
+            });
+
+            root.querySelectorAll?.('.github_contrib_graph').forEach((graph) => {
+                if (graph.dataset.githubContribObserved === '1') {
+                    return;
+                }
+
+                window.zyoWidgetDescriptionResizeObserver.observe(graph);
+                const scaleTarget = graph.querySelector('.github_contrib_graph_scale');
+                if (scaleTarget) {
+                    window.zyoWidgetDescriptionResizeObserver.observe(scaleTarget);
+                }
+                graph.dataset.githubContribObserved = '1';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            zyoObserveWidgetDescriptionMarquee();
+            zyoUpdateWidgetDescriptionMarquee();
+        });
+
+        window.addEventListener('load', () => {
+            zyoObserveWidgetDescriptionMarquee();
+            zyoUpdateWidgetDescriptionMarquee();
+        });
+
+        window.addEventListener('resize', () => {
+            window.clearTimeout(window.zyoWidgetDescriptionResizeTimer);
+            window.zyoWidgetDescriptionResizeTimer = window.setTimeout(() => {
+                zyoUpdateWidgetDescriptionMarquee();
+            }, 120);
+        });
+
+        
+        function zyoFormatDiscordActivityElapsed(totalSeconds) {
+            const seconds = Math.max(0, Math.floor(totalSeconds));
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const remainingSeconds = seconds % 60;
+            const pad = (value) => String(value).padStart(2, '0');
+
+            return `${pad(hours)}:${pad(minutes)}:${pad(remainingSeconds)}`;
+        }
+
+        function zyoUpdateDiscordActivityTimers(root = document) {
+            root.querySelectorAll?.('[data-discord-activity-started-at]').forEach((item) => {
+                const startedAt = Number(item.dataset.discordActivityStartedAt || 0);
+                const text = item.querySelector('.discord_presence_activity_time');
+
+                if (!startedAt || !text) {
+                    return;
+                }
+
+                text.textContent = zyoFormatDiscordActivityElapsed((Date.now() / 1000) - startedAt);
+            });
+        }
+
+        function zyoStartDiscordActivityTimers() {
+            zyoUpdateDiscordActivityTimers();
+
+            if (window.zyoDiscordActivityTimerInterval) {
+                return;
+            }
+
+            window.zyoDiscordActivityTimerInterval = window.setInterval(() => {
+                zyoUpdateDiscordActivityTimers();
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', zyoStartDiscordActivityTimers);
+        window.addEventListener('load', zyoStartDiscordActivityTimers);
+
+        function zyoActivateInjectedReveal(root) {
+            if (!root) {
+                return;
+            }
+
+            const reveals = [];
+
+            if (root.classList && root.classList.contains('reveal')) {
+                reveals.push(root);
+            }
+
+            root.querySelectorAll?.('.reveal').forEach((item) => {
+                reveals.push(item);
+            });
+
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => {
+                    reveals.forEach((item) => {
+                        item.classList.add('active');
+                    });
+                });
+            });
+        }
+
+        function zyoHydrateInjectedBioBlock(root) {
+            if (!root) {
+                return;
+            }
+
+            zyoActivateInjectedReveal(root);
+            zyoObserveWidgetDescriptionMarquee(root);
+            zyoUpdateWidgetDescriptionMarquee(root);
+            zyoUpdateDiscordActivityTimers(root);
+            zyoStartDiscordActivityTimers();
+            if (typeof window.zyoInitWidgetClocks === 'function') {
+                window.zyoInitWidgetClocks(root);
+            }
+            if (typeof window.zyoInitBioTilt === 'function') {
+                window.zyoInitBioTilt(root);
+            }
+            if (typeof window.zyoRefreshLayout5VisualizerTargets === 'function') {
+                window.zyoRefreshLayout5VisualizerTargets();
+            }
+            if (typeof window.zyoRefreshBioVisualizerTargets === 'function') {
+                window.zyoRefreshBioVisualizerTargets();
+            }
+            if (typeof zyoEnsureBorderShimmer === 'function') {
+                zyoEnsureBorderShimmer(root);
+            }
+            if (window.AOS && typeof window.AOS.refresh === 'function') {
+                window.AOS.refresh();
+            }
+            document.dispatchEvent(new Event('zyo:loadAos'));
+        }
+
+        function zyoReplaceWithAsyncFallback(slot) {
+            const fallbackTemplate = slot?.querySelector?.('template[data-bio-async-fallback]');
+            const replacement = fallbackTemplate?.content?.firstElementChild?.cloneNode(true);
+            if (!replacement) {
+                slot?.remove();
+                return null;
+            }
+
+            slot.replaceWith(replacement);
+            zyoHydrateInjectedBioBlock(replacement);
+            return replacement;
+        }
+
+        function zyoBioFetchJson(url, payload, timeoutMs = 9000) {
+            const controller = typeof window.AbortController === 'function'
+                ? new window.AbortController()
+                : null;
+            const timeout = window.setTimeout(() => controller?.abort(), timeoutMs);
+
+            return fetch(url, {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload),
+                signal: controller?.signal,
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            }).finally(() => {
+                window.clearTimeout(timeout);
+            });
+        }
+    </script>
+		<script>
+	    document.querySelectorAll('[data-discord-presence-payload]').forEach((slot) => {
+	        let payload = null;
+	        try {
+	            payload = JSON.parse(slot.dataset.discordPresencePayload || '{}');
+	        } catch (error) {
+	            zyoReplaceWithAsyncFallback(slot);
+	            return;
+	        }
+
+	        const renderDiscordPresence = (data) => {
+	            if (data.type !== 'success') {
+	                zyoReplaceWithAsyncFallback(slot);
+	                return;
+	            }
+
+	            if (!data.html) {
+	                throw new Error('Missing Discord presence HTML');
+	            }
+
+	            const template = document.createElement('template');
+	            template.innerHTML = data.html.trim();
+	            const replacement = template.content.firstElementChild;
+	            if (!replacement) {
+	                throw new Error('Invalid Discord presence HTML');
+	            }
+
+	            slot.replaceWith(replacement);
+	            zyoHydrateInjectedBioBlock(replacement);
+	            if (window.tippy && typeof window.tippy === 'function') {
+	                const tooltipItems = replacement.matches('[data-tippy-content]')
+	                    ? [replacement, ...replacement.querySelectorAll('[data-tippy-content]')]
+	                    : replacement.querySelectorAll('[data-tippy-content]');
+
+	                tooltipItems.forEach((item) => {
+	                    if (item._tippy) {
+	                        item._tippy.destroy();
+	                    }
+
+	                    window.tippy(item, {
+	                        theme: 'tooltip_container',
+	                        arrow: false,
+	                        allowHTML: true,
+	                        maxWidth: '92vw',
+	                        animation: 'scale',
+	                        delay: [0, 150],
+	                    });
+	                });
+	            }
+	        };
+
+	        const loadDiscordPresence = (attempt = 0) => {
+	            zyoBioFetchJson('/php/bioBE/discord_presence', payload)
+	                .then((data) => {
+	                    if (data.type === 'empty') {
+	                        zyoReplaceWithAsyncFallback(slot);
+	                        return;
+	                    }
+
+	                    renderDiscordPresence(data);
+	                })
+	                .catch(() => {
+	                    if (attempt < 2) {
+	                        window.setTimeout(() => {
+	                            loadDiscordPresence(attempt + 1);
+	                        }, 350 * (attempt + 1));
+	                        return;
+	                    }
+
+	                    zyoReplaceWithAsyncFallback(slot);
+	                });
+	        };
+
+	        loadDiscordPresence();
+	    });
+	</script>
+					<script>
+    const titleText = "@minhnhatt";
+        let index = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            if (isDeleting) {
+                document.title = titleText.substring(0, index);
+                index--;
+            } else {
+                document.title = titleText.substring(0, index + 1);
+                index++;
+            }
+
+            if (!isDeleting && index === titleText.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, 0);
+                return;
+            } else if (isDeleting && index === 0) {
+                isDeleting = false;
+                setTimeout(typeWriter, 0);
+                return;
+            }
+
+            const speed = isDeleting ? 350 : 350;
+            setTimeout(typeWriter, speed);
+        }
+
+        window.onload = typeWriter;
+</script>
+<script>
+    function openPopupPreview(link){
+        const linkPreview = document.getElementById('link_preview');
+        const linkPreviewButton = document.getElementById('link_preview_button');
+        linkPreview.value = link
+        linkPreviewButton.href = link
+        linkPreviewButton.target = '_blank'
+        linkPreviewButton.rel = 'noopener noreferrer'
+        openPopup('link_preview_container');
+    }
+</script>
+<script src="./@minhnhat_files/text-effect.js.tải xuống" type="text/javascript"></script>
+<script>
+    (() => {
+        const clickSoundUrl = "https://zyo.lol/template/audio/click/glass-click.mp3";
+        document.addEventListener('click', () => {
+            const clickSound = new Audio(clickSoundUrl);
+            clickSound.volume = .7;
+            clickSound.play().catch(() => {});
+        });
+    })();
+</script>
+<script>
+    var userName = document.getElementById('userName');
+            scramEffect2('#userName')
+        </script>
+<!--  -->
+<div aria-hidden="true" bis_skin_checked="1" style="position: fixed; width: 0px; height: 0px; overflow: hidden;"><div bis_skin_checked="1"><div bis_skin_checked="1"><template shadowrootmode="closed"><iframe src="https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/av0/rch/wudx8/0x4AAAAAAEYMsvotTS0j9mY0/auto/fbE/new/normal?lang=auto" allow="cross-origin-isolated; fullscreen; autoplay; keyboard-map; gamepad; xr-spatial-tracking" sandbox="allow-same-origin allow-scripts allow-popups" id="cf-chl-widget-wudx8" title="Tiện ích chứa thách thức bảo mật Cloudflare" tabindex="0" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none; overflow: hidden; width: 300px; height: 65px;"></iframe></template></div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-wudx8_response" value="1.9v6xMRNN5Xd4uu6fceld19BobAuS-NpgJ0XJoyvw8b--m-IJ00DW2U-BtaysYRK-8b4r5EsUbYZSW4NVNhyIwTKxXuB2aXNpzKj2FvadiD9oh-vBS9xzbQPWMKh9mKvvATG2bd6IOHN70Bg6OO2YGJbCiQUPyzbSxeYqJQHm36AHmLWvCTimLXwv_g-pNqcA0B9J025aAQXkz3gPjfTmWFt1tXP_JBHvtgL3h2vGGiY837xc09FeU-cScGjE-pxis3AWAwEjsxYrRH6Pl7uD3S0VqyPVBWU4WoD_S4_IGAoU93l_sTNS5AIy2fOdiEoJArIPllHbWI9-Vx3M_bhpLiCmuD6-1kUYFv1KL6OgffV5kzgakkOHbN-B6OEOcZ43nzxVD22-5-bSIBzRjg5S07ifXIUxvi1OGjEPBpWObDsZytVG68aTrv6NuOGHzB-AbTDRNUklKyL1Ie617oo4e1h8IQjJo9GXoscSCvROlOxLw7HxBVMnKoyzEtPI9Zitff6VMiOSeLWYe88onp7xgXMFm-6YCafg3-tjC7OjaX1OxGDBg2y4nukYO6FQ4DzDIxmgkUcGixBtbtUBT29Sq7_bZcWCOcuL7IBoZayL1BhYjPAH52aTGspVPI6AAOgi_P3UM7Tlk47vichtfTCzdxjSwycdwPxq2GIcnSvJ8wt0y5eD_5rlPCob7fxAXQK6.8AC7qtorUFI8QSI-H7PAIg.74865324769c50defc0e18ee5d5b88ccc5bd96b9982869d1bb73cc29823ecb88"></div></div></body></html>
